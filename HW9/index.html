@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Document</title>
+    <style>
+  
+        .legend span {
+          margin-right: 10px;
+        }
+          
+        .gridlines line {
+          stroke: #bbb;
+        }
+        
+        .gridlines .domain {
+          stroke: none;
+        }
+        
+    
+      </style>
+</head>
+<body>
+    <p id="rationale">
+        This is the part where I explain my rationale for each problem;
+        <br><br>
+        For problem A, I found that 'region_1' and 'country' contain some 'NA' or 'N/A' that are patterns of the false data, so I delete all data whose 'region_1' or 'country' are 'NA' or 'N/A';
+        The total number of data deleted is 84 and the length of cleaned array is 845.
+        <br><br>
+        For problem B, I set the x axis as scaleLog and y axis as scaleLinear because I tried to set both of x and y as scaleLinear but the overlap problem is severe, especially for x axis.
+        So I set the x axis to scaleLog to solve the overlap problem as much as possible. Since the the overlap problem for y axis is not severe at all, I set y axis as scaleLinear to show the original distribution.
+        <br><br>
+        For problem C, I set the r of circles as 3 to reduce the overlap problem (also with the jitter()function added to cx and cy). And the color is based on states.
+        The advantage of jittering approach is that it can sort of solving the overlap problem. But the disadvantage is that it cannot show the exact original x and y position of the circle reflecting the dataset.
+        <br><br>
+        For problem D, the benefit of this approach is that user can know the title of the wine as soon as he or she put his mouse over the circle. Also, it helps user to identify the circle they want to check when encounting the overlap problem. 
+    </p>
+    <p id="coding">
+        <svg id="s1" height=500 width=800 style="border:1px solid black; margin-bottom:50px;">
+            <text id="label" x="650" y="5"  text-anchor="end" alignment-baseline="hanging"></text>
+        </svg>
+        <script>
+            console.log(d3.json('wines.json'));
+            const svg = d3.select("svg#s1");
+            const width = svg.attr("width");
+            const height = svg.attr("height");
+            const margin = {top: 10, right: 10, bottom: 50, left: 50};
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+            let annotations = svg.append("g").attr("id","annotations");
+            let chartArea = svg.append("g").attr("id","points")
+                  .attr("transform","translate("+margin.left+","+margin.top+")");
+            d3.json('wines.json', d3.autoType).then((data)=>{
+                console.log(data)//929
+                let cleaned = data.filter(d=>{
+                    return d['region_1']!='NA'&&d['region_1']!='N/A'&&d['country']!='NA'&&d['country']!='N/A' //delete all data whose 'region_1' or 'country' are 'NA' or 'N/A'
+                })
+                console.log(cleaned)//845
+
+                cleaned.forEach( d => {
+                    d['points'] =  Number(d['points'].replace(/,/g,"").replace(/\$/g,""))})
+                cleaned.forEach( d => {
+                    d['price'] =  Number(d['price'].replace(/,/g,"").replace(/\$/g,""))})   //convert string to number
+            
+                const priceExtent = d3.extent(cleaned, d => d['price']);
+                const priceScale = d3.scaleLog().domain(priceExtent).range([0, chartWidth]);
+                const pointsExtent = d3.extent(cleaned, d => d['points']);
+                const pointsScale = d3.scaleLinear().domain(pointsExtent).range([chartHeight, 0]);
+                const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+                //y
+                let leftAxis = d3.axisLeft(pointsScale)
+
+                let leftGridlines = d3.axisLeft(pointsScale)
+                                        .tickSize(-chartWidth-10)
+                                        .tickFormat("")
+                annotations.append("g")
+                    .attr("class", "y axis")
+                    .attr("transform","translate("+(margin.left-10)+","+margin.top+")")
+                    .call(leftAxis)
+                annotations.append("g")
+                    .attr("class", "y gridlines")
+                    .attr("transform","translate("+(margin.left-10)+","+margin.top+")")
+                    .call(leftGridlines);
+
+                //x
+                let bottomAxis = d3.axisBottom(priceScale)
+                    .tickFormat(d3.format("$.0s"))
+                let bottomGridlines = d3.axisBottom(priceScale)
+                                        .tickSize(-chartHeight-10)
+                                        .tickFormat("")
+                annotations.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform","translate("+margin.left+","+(chartHeight+margin.top+10)+")")
+                    .call(bottomAxis);
+                annotations.append("g")
+                    .attr("class", "x gridlines")
+                    .attr("transform","translate("+margin.left+","+(chartHeight+margin.top+10)+")")
+                    .call(bottomGridlines);
+
+                function jitter(){
+                    return Math.random()*8-4
+                }
+
+                let circles = chartArea.selectAll("circle").data(cleaned)
+                         .join("circle")
+                         .attr("cx", d => priceScale(d['price'])+jitter())
+                         .attr("cy", d => pointsScale(d['points'])+jitter())
+                         .attr("r", 3)
+                         .style("fill", d=>colorScale(d['state']))
+                         .attr("opacity", 0.7);
+                
+                
+                
+                circles.on("mouseover", function() {
+
+                    d3.select(this)
+                    .transition().duration(200)
+                    .attr("stroke-width",4) 
+                    .attr("stroke","black")
+                    .attr("r", 7)
+                    .style("fill", d => colorScale(d['state']) );
+                
+                    let title = d3.select(this).datum()['title']
+                    d3.select("#label")
+                    .text(title);
+                });
+            
+
+                circles.on("mouseout", function() {
+
+
+                
+                    d3.select(this)
+                    .transition().duration(200) 
+                    .attr("stroke-width",1)     
+                    .attr("stroke","none")
+                    .attr("r", 5)      
+                    .style("fill", d => colorScale(d['state']) );
+
+                    d3.select("#label")
+                    .text("");
+                });
+
+            })
+
+        </script>
+    </p>
+
+</body>
+</html>

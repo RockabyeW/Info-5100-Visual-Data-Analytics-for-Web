@@ -1,0 +1,1873 @@
+{
+  "earliest_date": "12-31-1879",
+  "latest_date": "12-31-2015",
+  "max_value": 48821,
+  "min_value": 0,
+  "timeseries": [
+    {
+      "values": [
+        {
+          "date": "12-31-1915",
+          "total_caught": 23643,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1916",
+          "total_caught": 11919,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1917",
+          "total_caught": 2171,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1918",
+          "total_caught": 2008,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1919",
+          "total_caught": 4063,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1920",
+          "total_caught": 7320,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1921",
+          "total_caught": 15311,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1922",
+          "total_caught": 16673,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1923",
+          "total_caught": 12877,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1924",
+          "total_caught": 11955,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1925",
+          "total_caught": 7377,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1926",
+          "total_caught": 12315,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1927",
+          "total_caught": 10380,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1928",
+          "total_caught": 6923,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1929",
+          "total_caught": 5359,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1930",
+          "total_caught": 17690,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1931",
+          "total_caught": 18000,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1932",
+          "total_caught": 13828,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1933",
+          "total_caught": 12938,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1934",
+          "total_caught": 10654,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1935",
+          "total_caught": 14750,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1936",
+          "total_caught": 26787,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1937",
+          "total_caught": 20317,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1938",
+          "total_caught": 15818,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1939",
+          "total_caught": 14960,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1940",
+          "total_caught": 6963,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1941",
+          "total_caught": 4831,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1942",
+          "total_caught": 10627,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1943",
+          "total_caught": 20842,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1944",
+          "total_caught": 24323,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1945",
+          "total_caught": 14331,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1946",
+          "total_caught": 4922,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1947",
+          "total_caught": 4766,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1948",
+          "total_caught": 14745,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1949",
+          "total_caught": 23784,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1950",
+          "total_caught": 14801,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1951",
+          "total_caught": 6064,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1952",
+          "total_caught": 14037,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1953",
+          "total_caught": 18375,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1954",
+          "total_caught": 14395,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1955",
+          "total_caught": 19685,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1956",
+          "total_caught": 18857,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1957",
+          "total_caught": 10370,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1958",
+          "total_caught": 1400,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1959",
+          "total_caught": 79,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1960",
+          "total_caught": 11,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1961",
+          "total_caught": 2,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1962",
+          "total_caught": 1,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1963",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1964",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1965",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1966",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1967",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1968",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1969",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1970",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        },
+        {
+          "date": "12-31-1971",
+          "total_caught": 0,
+          "species": "Blue Pike"
+        }
+      ],
+      "species": "Blue Pike"
+    },
+    {
+      "values": [
+        {
+          "date": "12-31-1903",
+          "total_caught": 3547,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1908",
+          "total_caught": 8983,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1914",
+          "total_caught": 13419,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1915",
+          "total_caught": 10519,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1916",
+          "total_caught": 6640,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1917",
+          "total_caught": 6461,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1918",
+          "total_caught": 4884,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1919",
+          "total_caught": 3340,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1920",
+          "total_caught": 4534,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1921",
+          "total_caught": 6887,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1922",
+          "total_caught": 4120,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1923",
+          "total_caught": 3500,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1924",
+          "total_caught": 1549,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1925",
+          "total_caught": 2583,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1926",
+          "total_caught": 4400,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1927",
+          "total_caught": 1895,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1928",
+          "total_caught": 1246,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1929",
+          "total_caught": 1177,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1930",
+          "total_caught": 2176,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1931",
+          "total_caught": 2829,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1932",
+          "total_caught": 3425,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1933",
+          "total_caught": 2648,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1934",
+          "total_caught": 2219,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1935",
+          "total_caught": 2569,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1936",
+          "total_caught": 3048,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1937",
+          "total_caught": 2381,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1938",
+          "total_caught": 2583,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1939",
+          "total_caught": 2756,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1940",
+          "total_caught": 2784,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1941",
+          "total_caught": 2841,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1942",
+          "total_caught": 2683,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1943",
+          "total_caught": 2548,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1944",
+          "total_caught": 2123,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1945",
+          "total_caught": 2292,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1946",
+          "total_caught": 2041,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1947",
+          "total_caught": 1925,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1948",
+          "total_caught": 1725,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1949",
+          "total_caught": 2397,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1950",
+          "total_caught": 2153,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1951",
+          "total_caught": 2437,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1952",
+          "total_caught": 3211,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1953",
+          "total_caught": 3215,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1954",
+          "total_caught": 4021,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1955",
+          "total_caught": 3515,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1956",
+          "total_caught": 3754,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1957",
+          "total_caught": 4034,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1958",
+          "total_caught": 5144,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1959",
+          "total_caught": 4405,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1960",
+          "total_caught": 4876,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1961",
+          "total_caught": 4951,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1962",
+          "total_caught": 4925,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1963",
+          "total_caught": 3532,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1964",
+          "total_caught": 3097,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1965",
+          "total_caught": 3342,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1966",
+          "total_caught": 3792,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1967",
+          "total_caught": 3094,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1968",
+          "total_caught": 2827,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1969",
+          "total_caught": 3210,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1970",
+          "total_caught": 3431,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1971",
+          "total_caught": 3429,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1972",
+          "total_caught": 3314,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1973",
+          "total_caught": 2452,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1974",
+          "total_caught": 3152,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1975",
+          "total_caught": 3285,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1976",
+          "total_caught": 3194,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1977",
+          "total_caught": 3201,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1978",
+          "total_caught": 1921,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1979",
+          "total_caught": 2404,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1980",
+          "total_caught": 1937,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1981",
+          "total_caught": 2745,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1982",
+          "total_caught": 1628,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1983",
+          "total_caught": 1749,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1984",
+          "total_caught": 1313,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1985",
+          "total_caught": 1577,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1986",
+          "total_caught": 1155,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1987",
+          "total_caught": 1492,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1988",
+          "total_caught": 1432,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1989",
+          "total_caught": 1097,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1990",
+          "total_caught": 1350,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1991",
+          "total_caught": 1271,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1992",
+          "total_caught": 2082,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1993",
+          "total_caught": 1421,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1994",
+          "total_caught": 2058,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1995",
+          "total_caught": 2119,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1996",
+          "total_caught": 2035,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1997",
+          "total_caught": 1750,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1998",
+          "total_caught": 1997,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-1999",
+          "total_caught": 1583,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2000",
+          "total_caught": 1484,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2001",
+          "total_caught": 1123,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2002",
+          "total_caught": 913,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2003",
+          "total_caught": 647,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2004",
+          "total_caught": 557,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2005",
+          "total_caught": 669,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2006",
+          "total_caught": 662,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2007",
+          "total_caught": 568,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2008",
+          "total_caught": 408,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2009",
+          "total_caught": 454,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2010",
+          "total_caught": 450,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2011",
+          "total_caught": 612,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2012",
+          "total_caught": 718,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2013",
+          "total_caught": 404,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2014",
+          "total_caught": 441,
+          "species": "Carp"
+        },
+        {
+          "date": "12-31-2015",
+          "total_caught": 315,
+          "species": "Carp"
+        }
+      ],
+      "species": "Carp"
+    },
+    {
+      "values": [
+        {
+          "date": "12-31-1879",
+          "total_caught": 575,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1885",
+          "total_caught": 25306,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1889",
+          "total_caught": 44104,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1890",
+          "total_caught": 44560,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1893",
+          "total_caught": 27105,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1897",
+          "total_caught": 25103,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1899",
+          "total_caught": 39705,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1903",
+          "total_caught": 10522,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1908",
+          "total_caught": 15900,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1909",
+          "total_caught": 4677,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1910",
+          "total_caught": 6960,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1911",
+          "total_caught": 9955,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1912",
+          "total_caught": 13956,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1914",
+          "total_caught": 20344,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1915",
+          "total_caught": 21573,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1916",
+          "total_caught": 13571,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1917",
+          "total_caught": 33624,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1918",
+          "total_caught": 48821,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1919",
+          "total_caught": 26173,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1920",
+          "total_caught": 22544,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1921",
+          "total_caught": 20189,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1922",
+          "total_caught": 20329,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1923",
+          "total_caught": 30171,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1924",
+          "total_caught": 32201,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1925",
+          "total_caught": 5757,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1926",
+          "total_caught": 3022,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1927",
+          "total_caught": 4659,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1928",
+          "total_caught": 1891,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1929",
+          "total_caught": 489,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1930",
+          "total_caught": 853,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1931",
+          "total_caught": 1295,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1932",
+          "total_caught": 1011,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1933",
+          "total_caught": 313,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1934",
+          "total_caught": 346,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1935",
+          "total_caught": 167,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1936",
+          "total_caught": 147,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1937",
+          "total_caught": 164,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1938",
+          "total_caught": 2185,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1939",
+          "total_caught": 2690,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1940",
+          "total_caught": 647,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1941",
+          "total_caught": 164,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1942",
+          "total_caught": 88,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1943",
+          "total_caught": 83,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1944",
+          "total_caught": 435,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1945",
+          "total_caught": 9210,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1946",
+          "total_caught": 16164,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1947",
+          "total_caught": 3662,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1948",
+          "total_caught": 817,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1949",
+          "total_caught": 482,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1950",
+          "total_caught": 891,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1951",
+          "total_caught": 473,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1952",
+          "total_caught": 385,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1953",
+          "total_caught": 299,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1954",
+          "total_caught": 381,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1955",
+          "total_caught": 129,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1956",
+          "total_caught": 253,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1957",
+          "total_caught": 126,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1958",
+          "total_caught": 76,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1959",
+          "total_caught": 55,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1960",
+          "total_caught": 18,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1961",
+          "total_caught": 9,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1962",
+          "total_caught": 7,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1963",
+          "total_caught": 3,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1964",
+          "total_caught": 3,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1965",
+          "total_caught": 1,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1966",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1967",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1968",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1969",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1970",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1971",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1972",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1973",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1974",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1975",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1976",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-1977",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-2012",
+          "total_caught": 0,
+          "species": "Cisco"
+        },
+        {
+          "date": "12-31-2014",
+          "total_caught": 0,
+          "species": "Cisco"
+        }
+      ],
+      "species": "Cisco"
+    },
+    {
+      "values": [
+        {
+          "date": "12-31-1952",
+          "total_caught": 2319,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1953",
+          "total_caught": 3479,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1954",
+          "total_caught": 9450,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1955",
+          "total_caught": 7436,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1956",
+          "total_caught": 8082,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1957",
+          "total_caught": 4962,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1958",
+          "total_caught": 2755,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1959",
+          "total_caught": 2223,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1960",
+          "total_caught": 5034,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1961",
+          "total_caught": 5526,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1962",
+          "total_caught": 3739,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1963",
+          "total_caught": 3007,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1964",
+          "total_caught": 3258,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1965",
+          "total_caught": 3721,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1966",
+          "total_caught": 2978,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1967",
+          "total_caught": 1921,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1968",
+          "total_caught": 1478,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1969",
+          "total_caught": 2094,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1970",
+          "total_caught": 1299,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1971",
+          "total_caught": 1092,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1972",
+          "total_caught": 2526,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1973",
+          "total_caught": 3921,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1974",
+          "total_caught": 5259,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1975",
+          "total_caught": 4255,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1976",
+          "total_caught": 2643,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1977",
+          "total_caught": 2108,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1978",
+          "total_caught": 3381,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1979",
+          "total_caught": 3647,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1980",
+          "total_caught": 3521,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1981",
+          "total_caught": 3070,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1982",
+          "total_caught": 4138,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1983",
+          "total_caught": 5441,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1984",
+          "total_caught": 5369,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1985",
+          "total_caught": 6058,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1986",
+          "total_caught": 3964,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1987",
+          "total_caught": 3446,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1988",
+          "total_caught": 4475,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1989",
+          "total_caught": 5055,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1990",
+          "total_caught": 4046,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1991",
+          "total_caught": 2405,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1992",
+          "total_caught": 1253,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1993",
+          "total_caught": 1101,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1994",
+          "total_caught": 1581,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1995",
+          "total_caught": 788,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1996",
+          "total_caught": 2373,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1997",
+          "total_caught": 2597,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1998",
+          "total_caught": 2686,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-1999",
+          "total_caught": 2642,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2000",
+          "total_caught": 3441,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2001",
+          "total_caught": 3864,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2002",
+          "total_caught": 6324,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2003",
+          "total_caught": 3486,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2004",
+          "total_caught": 3727,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2005",
+          "total_caught": 2926,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2006",
+          "total_caught": 2645,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2007",
+          "total_caught": 3646,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2008",
+          "total_caught": 4826,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2009",
+          "total_caught": 3865,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2010",
+          "total_caught": 4001,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2011",
+          "total_caught": 2257,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2012",
+          "total_caught": 4180,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2013",
+          "total_caught": 6095,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2014",
+          "total_caught": 5441,
+          "species": "White Bass"
+        },
+        {
+          "date": "12-31-2015",
+          "total_caught": 4959,
+          "species": "White Bass"
+        }
+      ],
+      "species": "White Bass"
+    },
+    {
+      "values": [
+        {
+          "date": "12-31-1952",
+          "total_caught": 375,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1953",
+          "total_caught": 1030,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1954",
+          "total_caught": 1266,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1955",
+          "total_caught": 2040,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1956",
+          "total_caught": 3694,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1957",
+          "total_caught": 4475,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1958",
+          "total_caught": 4657,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1959",
+          "total_caught": 6858,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1960",
+          "total_caught": 11496,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1961",
+          "total_caught": 12852,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1962",
+          "total_caught": 19182,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1963",
+          "total_caught": 10830,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1964",
+          "total_caught": 13181,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1965",
+          "total_caught": 11713,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1966",
+          "total_caught": 15923,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1967",
+          "total_caught": 12504,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1968",
+          "total_caught": 12224,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1969",
+          "total_caught": 15078,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1970",
+          "total_caught": 9404,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1971",
+          "total_caught": 13132,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1972",
+          "total_caught": 10521,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1973",
+          "total_caught": 17062,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1974",
+          "total_caught": 15806,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1975",
+          "total_caught": 16934,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1976",
+          "total_caught": 17229,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1977",
+          "total_caught": 22997,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1978",
+          "total_caught": 26630,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1979",
+          "total_caught": 23860,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1980",
+          "total_caught": 25109,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1981",
+          "total_caught": 30326,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1982",
+          "total_caught": 43566,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1983",
+          "total_caught": 29494,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1984",
+          "total_caught": 16485,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1985",
+          "total_caught": 25478,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1986",
+          "total_caught": 17463,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1987",
+          "total_caught": 25561,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1988",
+          "total_caught": 20404,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1989",
+          "total_caught": 16156,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1990",
+          "total_caught": 17835,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1991",
+          "total_caught": 20221,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1992",
+          "total_caught": 12711,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1993",
+          "total_caught": 17505,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1994",
+          "total_caught": 10593,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1995",
+          "total_caught": 12121,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1996",
+          "total_caught": 8745,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1997",
+          "total_caught": 13062,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1998",
+          "total_caught": 14190,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-1999",
+          "total_caught": 12521,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2000",
+          "total_caught": 7162,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2001",
+          "total_caught": 9345,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2002",
+          "total_caught": 7480,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2003",
+          "total_caught": 7395,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2004",
+          "total_caught": 12967,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2005",
+          "total_caught": 6881,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2006",
+          "total_caught": 1847,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2007",
+          "total_caught": 9884,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2008",
+          "total_caught": 8219,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2009",
+          "total_caught": 8068,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2010",
+          "total_caught": 3254,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2011",
+          "total_caught": 5910,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2012",
+          "total_caught": 7452,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2013",
+          "total_caught": 6936,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2014",
+          "total_caught": 6051,
+          "species": "Rainbow Smelt"
+        },
+        {
+          "date": "12-31-2015",
+          "total_caught": 8333,
+          "species": "Rainbow Smelt"
+        }
+      ],
+      "species": "Rainbow Smelt"
+    }
+  ]
+}

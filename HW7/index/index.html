@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <style>
+  
+        .state {
+          fill: lightgrey;
+        }
+        .outline {
+          fill: none;
+          stroke: black;
+          stroke-width: 1px;
+        }
+
+      
+      </style>
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <svg id="choropleth" height="770" width="990" style="margin:20px"></svg>
+        <ul id="ulArray">
+        </ul>
+        <script>
+            const svg = d3.select("#choropleth");
+            const width = svg.attr("width");
+            const height = svg.attr("height");
+            const margin = { top: 20, right: 20, bottom: 20, left:20};
+            const mapWidth = width - margin.left - margin.right;
+            const mapHeight = height - margin.top - margin.bottom;
+            const viewport = svg.append("g")
+                  .attr("transform","translate("+margin.left+","+margin.top+")");
+
+
+            const requestData = async function() {
+            
+
+            const nyincome = await d3.json("ny_income.topo.json");
+            // console.log(nyincome);
+            var zips = topojson.feature(nyincome, nyincome.objects.zip_codes);     // List of state outlines to fill
+            var zipsMesh = topojson.mesh(nyincome, nyincome.objects.zip_codes);    // 'Mesh' of all outlines put together for a stroke
+            var stateMesh = topojson.mesh(nyincome, nyincome.objects.state);
+            var projection = d3.geoMercator().fitSize([mapWidth, mapHeight], zips);
+            var path = d3.geoPath().projection(projection);
+            // console.log(zips);
+            // console.log(zipsMesh);
+            // console.log(stateMesh);
+
+
+ 
+            let array=[];
+            for(let i=0; i<1633; i++){
+                array[i]=nyincome.objects.zip_codes.geometries[i].properties.median_income
+            }
+            // console.log(array)
+            const minMax = d3.extent( array )
+            const colorScale = d3.scaleQuantile()     
+                    .domain(array)
+                    .range(["#8b0000","#FF0000","#FFA500","#FFFF00","#90EE90"]);
+            
+
+
+
+            let statePaths = viewport.selectAll("path.state").data(zips.features)
+                     .join("path")
+                     .attr("class", "state")
+                     .attr("d", path)
+
+            viewport.selectAll(".state").data(array)
+                    .style("fill", d=>colorScale(d));
+            
+
+            
+
+  
+            viewport.append("path").datum(stateMesh)
+            .attr("d", path)
+            .attr("stroke", "darkgrey")
+            .attr("stroke-width", "3")
+            .attr("fill","none")
+   
+            let zippath = viewport.append("path").datum(zipsMesh)
+            .attr("d", path)
+            .attr("stroke", "white")
+            .attr("stroke-width", "1")
+            .attr("class","zippath")
+            .attr("fill","none")
+
+            var coordinates = projection([-76.4850,42.4476]);
+            viewport.append("circle")
+                .attr("cx", coordinates[0])
+                .attr("cy", coordinates[1])
+                .attr("r", 5)
+                .style("fill", "black");
+            
+            var zoom = d3.zoom()
+                  .scaleExtent([1,20])
+                  .translateExtent([[-50,-50],[mapWidth+50,mapHeight+50]]) 
+                  .on("zoom", ZoomM);
+
+            svg.call(zoom);
+            
+            function ZoomM({transform}) {   
+                viewport.attr("transform", transform.toString() );
+                viewport.select(".zippath")
+                            .style("stroke-width", 1 / transform.k);
+            }
+            // console.log(colorScale)
+            let arr = colorScale.quantiles()
+            // console.log(arr)
+            var li_1=document.createElement("li")
+            li_1.innerHTML = 'Darkred: income below '+arr[0]
+            document.getElementById("ulArray").appendChild(li_1)
+            var li_2=document.createElement("li")
+            li_2.innerHTML = 'Red: income between '+arr[0] + ' and ' + arr[1]
+            document.getElementById("ulArray").appendChild(li_2)
+            var li_3=document.createElement("li")
+            li_3.innerHTML = 'Orange: income between '+arr[1] + ' and ' + arr[2]
+            document.getElementById("ulArray").appendChild(li_3)
+            var li_4=document.createElement("li")
+            li_4.innerHTML = 'Yellow: income between '+arr[2] + ' and ' + arr[3]
+            document.getElementById("ulArray").appendChild(li_4)
+            var li_5=document.createElement("li")
+            li_5.innerHTML = 'Lightgreen: income above '+arr[3]
+            document.getElementById("ulArray").appendChild(li_5)
+        }
+
+        requestData();
+        </script>
+    </p>
+</body>
+</html>

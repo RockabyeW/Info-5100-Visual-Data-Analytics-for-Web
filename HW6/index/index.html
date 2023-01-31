@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+  
+        .gridlines line {
+          stroke: #bbb;
+        }
+        
+        .gridlines .domain {
+          stroke: none;
+        }
+      
+        </style>
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1">
+        <svg id="s1" height=400 width=800 style="border:1px solid black; margin-bottom:50px;"></svg>
+        <script>
+            const svg = d3.select("svg#s1");
+            const width = svg.attr("width");
+            const height = svg.attr("height");
+            const margin = {top: 10, right: 10, bottom: 50, left: 50};
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+            let annotations = svg.append("g").attr("id","annotations");
+            let chartArea = svg.append("g").attr("id","points")
+                                .attr("transform",`translate(${margin.left},${margin.top})`);
+            d3.json("erie_fishing.json")
+                    .then( (data) => {
+                        console.log(data);
+                        const timeParser = d3.timeParse('%m-%d-%Y');
+                        data.timeseries[0].values.forEach(d=>{
+                            d['numdate0'] = timeParser(d["date"]);
+                        })
+                        data.timeseries[1].values.forEach(d=>{
+                            d['numdate1'] = timeParser(d["date"]);
+                        })
+                        data.timeseries[2].values.forEach(d=>{
+                            d['numdate2'] = timeParser(d["date"]);
+                        })
+                        data.timeseries[3].values.forEach(d=>{
+                            d['numdate3'] = timeParser(d["date"]);
+                        })
+                        data.timeseries[4].values.forEach(d=>{
+                            d['numdate4'] = timeParser(d["date"]);
+                        })
+
+                        data['enumdate'] = timeParser(data.earliest_date)
+                        data['lnumdate'] = timeParser(data.latest_date)
+
+                        const carbonScale = d3.scaleLinear().domain([data.min_value,data.max_value]).range([chartHeight, 0]);
+                        let leftAxis = d3.axisLeft(carbonScale)
+                        let leftGridlines = d3.axisLeft(carbonScale)
+                                                .tickSize(-chartWidth-10)
+                                                .tickFormat("")
+                        annotations.append("g")
+                            .attr("class", "y axis")
+                            .attr("transform",`translate(${margin.left-10},${margin.top})`)
+                            .call(leftAxis)
+                        annotations.append("g")
+                            .attr("class", "y gridlines")
+                            .attr("transform",`translate(${margin.left-10},${margin.top})`)
+                            .call(leftGridlines);
+
+ 
+                        const dateScale = d3.scaleTime().domain([data['enumdate'],data['lnumdate']]).range([0,chartWidth]);
+                        let bottomAxis = d3.axisBottom(dateScale)
+                        let bottomGridlines = d3.axisBottom(dateScale)
+                                                .tickSize(-chartHeight-10)
+                                                .tickFormat("")
+                        annotations.append("g")
+                            .attr("class", "x axis")
+                            .attr("transform",`translate(${margin.left},${chartHeight+margin.top+10})`)
+                            .call(bottomAxis);
+                        annotations.append("g")
+                            .attr("class", "x gridlines")
+                            .attr("transform",`translate(${margin.left},${chartHeight+margin.top+10})`)
+                            .call(bottomGridlines);
+
+
+
+                        var lineGen0 = d3.line()
+                                        .x( d => dateScale(d['numdate0']))
+                                        .y( d => carbonScale(d['total_caught']) )
+                                        
+                        
+                        var lineGen1 = d3.line()
+                                        .x( d => dateScale(d['numdate1']))
+                                        .y( d => carbonScale(d['total_caught']) )
+                                       
+
+                        var lineGen2 = d3.line()
+                                        .x( d => dateScale(d['numdate2']))
+                                        .y( d => carbonScale(d['total_caught']) )
+                                     
+
+                        var lineGen3 = d3.line()
+                                        .x( d => dateScale(d['numdate3']))
+                                        .y( d => carbonScale(d['total_caught']) )
+                                        
+
+                        var lineGen4 = d3.line()
+                                        .x( d => dateScale(d['numdate4']))
+                                        .y( d => carbonScale(d['total_caught']) )
+                        
+                        let path0 = svg.append("g").attr("id","0")
+                                .attr("transform",`translate(${margin.left},${margin.top})`);
+
+                        let path1 = svg.append("g").attr("id","0")
+                                .attr("transform",`translate(${margin.left},${margin.top})`);
+
+                        let path2 = svg.append("g").attr("id","0")
+                                .attr("transform",`translate(${margin.left},${margin.top})`);
+
+                        let path3 = svg.append("g").attr("id","0")
+                                .attr("transform",`translate(${margin.left},${margin.top})`);
+
+                        let path4 = svg.append("g").attr("id","0")
+                                .attr("transform",`translate(${margin.left},${margin.top})`);
+
+
+                        chartArea.append("path")
+                                .datum(data.timeseries[0].values)
+                                .attr("class", "line")
+                                .attr("fill", "none")  
+                                .attr("stroke", "steelblue")
+                                .attr("stroke-width", 2)
+                                .attr("d", lineGen0);
+
+
+                        chartArea.append("path")
+                                .datum(data.timeseries[1].values)
+                                .attr("class", "line")
+                                .attr("fill", "none")  
+                                .attr("stroke", "orange")
+                                .attr("stroke-width", 2)
+                                .attr("d", lineGen1);
+
+                        
+                        chartArea.append("path")
+                                .datum(data.timeseries[2].values)
+                                .attr("class", "line")
+                                .attr("fill", "none")  
+                                .attr("stroke", "green")
+                                .attr("stroke-width", 2)
+                                .attr("d", lineGen2);
+
+                        
+                        chartArea.append("path")
+                                .join('g')
+                                .attr('class','3')
+                                .datum(data.timeseries[3].values)
+                                .attr("class", "line")
+                                .attr("fill", "none")   
+                                .attr("stroke", "red")
+                                .attr("stroke-width", 2)
+                                .attr("d", lineGen3);
+
+
+                        
+                        chartArea.append("path")
+                                .datum(data.timeseries[4].values)
+                                .attr("class", "line")
+                                .attr("fill", "none")  
+                                .attr("stroke", "purple")
+                                .attr("stroke-width", 2)
+                                .attr("d", lineGen4);
+
+                                
+
+                            path0.selectAll("circle").data(data.timeseries[0].values)
+                            .join("circle")
+                            .attr("id", "0")
+                            .attr("r", 2)
+                            .attr("fill", "steelblue")   
+                            .attr("cx", d => dateScale(d['numdate0']))
+                            .attr("cy", d => carbonScale(d['total_caught']) );
+
+                            path1.selectAll("circle").data(data.timeseries[1].values)
+                            .join("circle")
+                            .attr("id", "1")
+                            .attr("r", 2)
+                            .attr("fill", "orange")   
+                            .attr("cx", d => dateScale(d['numdate1']))
+                            .attr("cy", d => carbonScale(d['total_caught']) );
+
+                            path2.selectAll("circle").data(data.timeseries[2].values)
+                            .join("circle")
+                            .attr("id", "2")
+                            .attr("r", 2)
+                            .attr("fill", "green")   
+                            .attr("cx", d => dateScale(d['numdate2']))
+                            .attr("cy", d => carbonScale(d['total_caught']) );
+
+                            path3.selectAll("circle").data(data.timeseries[3].values)
+                            .join("circle")
+                            .attr("id", "3")
+                            .attr("r", 2)
+                            .attr("fill", "red")   
+                            .attr("cx", d => dateScale(d['numdate3']))
+                            .attr("cy", d => carbonScale(d['total_caught']) );
+
+
+                            path4.selectAll("circle").data(data.timeseries[4].values)
+                            .join("circle")
+                            .attr("id", "4")
+                            .attr("r", 2)
+                            .attr("fill", "purple")   
+                            .attr("cx", d => dateScale(d['numdate4']))
+                            .attr("cy", d => carbonScale(d['total_caught']) );
+
+
+
+                        
+                    })
+        
+        
+        
+        </script>
+    </p>
+</body>
+</html>

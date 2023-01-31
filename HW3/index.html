@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1">
+        <svg id="s1" height=400 width=400 style="border:1px solid black; margin-bottom:50px;"></svg>
+        <!-- <div id="d1">Cornell!</div> -->
+        <script>
+            let svg = d3.select("svg#s1")
+            // console.log(svg)
+            let height = svg.attr("height")
+            let width = svg.attr("width")
+            // console.log(height)
+            svg.append("circle")
+                .attr("cx",200)
+                .attr("cy",200)
+                .attr("r",5)
+                .attr("fill","lightblue")
+            
+            svg.append("text")
+                .text("Cornell!")
+                .attr("text-anchor","start")
+                .attr("x",160)
+                .attr("y",205)
+                .attr("font-size",20)
+                .attr("fill","darkred")
+                .attr("font-family","Verdana")
+
+
+
+            svg.append("rect")
+                .attr("x",120)
+                .attr("y",120)
+                .attr("width",50)
+                .attr("height",50)  
+                .attr("fill","red")
+                .attr("stroke","blue")  
+
+            svg.append("rect")
+                .attr("x",240)
+                .attr("y",180)
+                .attr("width",50)
+                .attr("height",20)  
+                .attr("fill","purple")
+                .attr("stroke","pink") 
+
+            svg.append("rect")
+                .attr("x",180)
+                .attr("y",220)
+                .attr("width",40)
+                .attr("height",30)  
+                .attr("fill","green")
+                .attr("stroke","black") 
+        </script>
+        
+    </p>
+    <p id="p2">
+        
+        <svg id="s2" height=360 width=360 style="border:1px solid black; margin-bottom:50px;">
+
+        </svg>
+        <script>
+            data = [{"x":1.0 ,"y":1.0},
+                    {"x":2.0 ,"y":2.0},
+                    {"x":3.0 ,"y":3.0},
+                    {"x":3.8 ,"y":5.0},
+                    {"x":4.4 ,"y":6.4},
+                    {"x":5.8 ,"y":7.5},
+                    {"x":7.3 ,"y":8.2},
+                    {"x":8.3 ,"y":8.7},
+                    {"x":9.3 ,"y":9.2}];
+
+            let svg2 = d3.select("svg#s2")
+            let height2 = svg2.attr("height")
+            let width2 = svg2.attr("width")
+            let scale = d3.scaleLinear()
+                            .domain([0,10])
+                            .range([20,340])
+
+            for(i=0;i<=10;i++){
+                svg2.append("line")
+                    .attr("x1",scale(i))
+                    .attr("y1",scale(0))
+                    .attr("x2",scale(i))
+                    .attr("y2",scale(10))
+                    .style("stroke","grey")
+                    .style("stroke-width",1)
+            }
+
+            for(j=0;j<=10;j++){
+                svg2.append("line")
+                    .attr("x1",scale(0))
+                    .attr("y1",scale(j))
+                    .attr("x2",scale(10))
+                    .attr("y2",scale(j))
+                    .style("stroke","grey")
+                    .style("stroke-width",1)
+            }
+
+            data.forEach((d) => {
+                svg2.append("circle")
+                    .attr("cx",scale(d['x']))
+                    .attr("cy",height2-scale(d['y']))
+                    .attr("r",10)
+                    .attr("fill","maroon")
+            }
+
+            )
+        </script>
+
+    </p>
+
+</body>
+</html>

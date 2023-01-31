@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Document</title>
+    <style>
+  
+        .gridlines .domain {
+            display: none;
+        }
+        
+        .gridlines line {
+            stroke: #444;
+        }
+
+        g.mouseover rect {
+          fill: white;
+          stroke: #222;
+          stroke-width: 1px;
+        }
+        g.mouseover text {
+          font-family: Arial, sans-serif;
+        }
+        g.mouseover text:first-child {
+          font-weight: bold;
+        }  
+        
+        .button1 {
+            position: relative;
+            background-color: #ffffff;
+            border:2px solid darkred;
+            border-radius:8px;
+            font-size: 18px;
+            color:  red;
+            padding: 10px 20px;
+            margin: 4px 2px;
+            text-align: center;
+            -webkit-transition-duration: 0.4s; 
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .button1:after {
+            content: "";
+            background: #a9a9a9;
+            display: block;
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px!important;
+            margin-top: -120%;
+            opacity: 0;
+            transition: all 0.8s
+        }
+        
+        .button1:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s
+        }
+        .button2 {
+            position: relative;
+            background-color: #ffffff;
+            border:2px solid darkblue;
+            border-radius:8px;
+            font-size: 18px;
+            color:  blue;
+            padding: 10px 20px;
+            margin: 4px 2px;
+            text-align: center;
+            -webkit-transition-duration: 0.4s; 
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .button2:after {
+            content: "";
+            background: #a9a9a9;
+            display: block;
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px!important;
+            margin-top: -120%;
+            opacity: 0;
+            transition: all 0.8s
+        }
+        
+        .button2:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s
+        }
+
+
+        .button2:hover {  
+            background-color: #ffffff;
+            box-shadow: 0 3px #666;
+            transform: translateY(2px);
+        }
+
+        .button1:hover {  
+            background-color: #ffffff;
+            box-shadow: 0 3px #666;
+            transform: translateY(2px);
+        }
+ 
+        .myDiv1 {
+            position: absolute;
+            bottom: 0;
+            right: 700px;
+            width: 300px;
+            border: none;
+        }
+        .myDiv2 {
+            position: absolute;
+            bottom: 0;
+            right: 1100px;
+            width: 300px;
+            border: none;
+        }
+        </style>
+</head>
+<body>
+    <svg id="barchart" height="700" width="1200" style="margin-top:50px" >
+      
+      <text id="Marvel" x="200" y="40"  text-anchor="middle" alignment-baseline="hanging" font-size="45px" fill="darkred") ></text>
+      <text id="DC" x="900" y="40"  text-anchor="middle" alignment-baseline="hanging" font-size="45px" fill="darkblue") ></text>
+
+    </svg>
+
+    <div id="button-bar1" class="myDiv1"></div>
+    <div id="button-bar2" class="myDiv2"></div>
+    <script>
+
+        const svg = d3.select("svg#barchart");
+        const width = svg.attr("width");
+        const height = svg.attr("height");
+        const margin = {top: 10, right: 10, bottom: 50, left: 50};
+        const chartWidth = width - margin.left - margin.right;
+        const chartHeight = height - margin.top - margin.bottom;
+    
+        let annotations = svg.append("g").attr("id","annotations");
+        let chartArea = svg.append("g").attr("id","points")
+                        .attr("transform",`translate(${margin.left},${margin.top})`);
+    
+
+        d3.json("yearly released.json", d3.autoType)
+          .then( (yearData) => {
+
+        const percentScale = d3.scaleLinear().domain([0,9]).range([chartHeight, 200]);
+        let leftAxis = d3.axisLeft(percentScale);
+        let leftGridlines = d3.axisLeft(percentScale)
+                              .tickSize(-chartWidth+40)
+                              .tickFormat("")
+        annotations.append("g")
+                   .attr("class", "y axis")
+                   .attr("transform",`translate(${margin.left-10},${margin.top})`)
+                   .call(leftAxis)
+        annotations.append("g")
+                   .attr("class", "y gridlines")
+                   .attr("transform",`translate(${margin.left-10},${margin.top})`)
+                   .call(leftGridlines);
+        
+
+                   
+        let bottomAxis = d3.axisBottom()
+        let bottomAxisG = annotations.append("g")
+                                 .attr("class", "x axis")
+                                 .attr("transform",`translate(${margin.left},${chartHeight+margin.top+10})`)
+                       
+        
+        svg.append("text")
+            .text("Number")
+            .attr("x", 40)
+            .attr("y", 190)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "15px")
+            .attr("fill", "black")
+
+        svg.append("text")
+            .text("Year")
+            .attr("x", 1170)
+            .attr("y", 670)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "15px")
+            .attr("fill", "black")
+                                 
+        svg.append("text")
+            .text("Number of movies released yearly")
+            .attr("x", 600)
+            .attr("y", 150)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "25px")
+            .attr("fill", "black")
+
+        function updateBarsAnimated(yearKey) {
+          
+          const data = yearData[yearKey]  
+          
+          const years = d3.map(data, d => d.year) 
+          const yearScale = d3.scaleBand().domain(years).range([0, chartWidth-50])
+                                           .padding(0.05);
+          const colorScale = d3.scaleOrdinal().domain(["DC","Marvel"])
+                                        .range( ["darkblue","darkred"] );
+
+          bottomAxis.scale(yearScale)
+          bottomAxisG.transition().call(bottomAxis);
+          
+
+        let activeRegion = chartArea.selectAll('rect.bar').data( data, d => d['year']  )
+                   .join( 
+                    enter => {
+                        
+                            enter.append('rect')
+                                        .attr('class','bar')
+                                
+                                        .attr("fill", colorScale(Object.keys(yearData).find(key=>yearData[key]==data)))
+                                        .attr("x", d => yearScale(d.year))
+                                        .attr("y", d => percentScale(d.num))
+                                        .attr("height", d => percentScale(0)-percentScale(d.num))
+                            
+                                        .attr("width", yearScale.bandwidth())
+                                        .attr("opacity", 0) 
+                                        .call( enter => enter.transition()
+                                                             .attr('opacity',1) )
+                     
+                    },
+                          update => update.call( update => {
+                            
+                                update.transition()  
+                                                                 .attr("fill", colorScale(Object.keys(yearData).find(key=>yearData[key]==data)))
+                                                                 .attr("x", d => yearScale(d.year))
+                                                                 .attr("y", d => percentScale(d.num))
+                                                                 .attr("height", d => percentScale(0)-percentScale(d.num))
+                                                                 .attr("width", yearScale.bandwidth()) 
+                                                                }),
+                          exit => exit.call( exit => exit.transition().attr('opacity',0).remove() ) );
+
+ 
+
+
+
+
+ 
+          const mouseover = svg.append("g").attr("class","mouseover")
+                           .attr("transform",`translate(${margin.left+15},${margin.top+15})`);
+                           
+
+      function stringLen(str) {
+        const dummytext = mouseover.append("text").attr("class","legendtext").attr("visibility","hidden");
+        dummytext.text(str)
+        let len = dummytext.node().getComputedTextLength() 
+        dummytext.remove()                                
+        return len;
+      }
+      console.log(stringLen("hello world"));
+    
+      const frame = mouseover.append("rect").attr("class","frame")
+                        
+                             .attr("x", 0).attr("y", 200)
+                             .attr("rx", 5).attr("ry", 5)  
+                             .attr("height", 70);  
+      const textbox = mouseover.append("g").attr("transform","translate(10,210)");
+      const format = d3.format(',d');  
+      
+    
+      function updateMouseover(d) {
+ 
+    
+        textbox.html('');  
+        
+        let best = `Best-selling movie: ${d['best']}`;
+        let gross = `Gross Profit (USD): ${d['gross']}`;
+        let rating = `IMDB Rating: ${d['rating']}`;
+        
+        let maxWidth = Math.max( stringLen(best), stringLen(gross), stringLen(rating) )+25
+        frame.attr("width", maxWidth+20);
+        
+        textbox.append("text").text(best)
+               .attr("x", 0).attr("y", 10);
+        textbox.append("text").text(gross)
+               .attr("x", 0).attr("y", 30);
+        textbox.append("text").text(rating)
+               .attr("x", 0).attr("y", 50);
+    
+      }
+      activeRegion.on("mouseover", function(d) {
+        mouseover.attr("visibility","");
+        d3.select(this)
+                .attr("stroke-width",4) 
+                .attr("stroke","black")
+        updateMouseover( d3.select(this).datum() )
+        
+      });
+    
+      activeRegion.on("mouseout", function() {
+        mouseover.attr("visibility","hidden");
+        d3.select(this)
+                .attr("stroke-width",0) 
+                .attr("stroke","none")
+      });
+        } 
+
+
+        const allKeys = Object.keys(yearData).sort();
+
+        d3.select("div#button-bar1")
+            .append("button")
+            .attr("class", "button1")
+            .text("Marvel")
+            .on("click", function() {
+              d3.select("text#DC")
+                .text("");
+              updateBarsAnimated("Marvel");
+              d3.select("text#Marvel")
+                .text("Marvel");  
+    
+            })
+        
+        d3.select("div#button-bar2")
+            .append("button")
+            .attr("class", "button2")
+            .text("DC")
+            .on("click", function() {
+              d3.select("text#Marvel")
+                .text("");
+              updateBarsAnimated("DC");
+              d3.select("text#DC")
+                .text("DC");  
+    
+            })
+
+
+        updateBarsAnimated('Marvel');
+      
+      
+      });  
+      svg.append("image")
+                .attr("x", 500)
+                .attr("y", -35)
+                .attr("xlink:href", "mdc.jpg")
+                .attr("width", 154)
+                .attr("height",154)
+      
+
+
+
+
+
+
+      </script>
+      
+      
+      
+      
+      
+      
+
+
+</body>
+</html>

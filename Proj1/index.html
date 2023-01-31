@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      .gridlines line {
+        stroke: #bbb;
+      }
+
+      .gridlines .domain {
+        stroke: none;
+      }
+    </style>
+</head>
+<body>
+  <h3>Project 1 TITLE HERE</h3>
+  <b>George Gu, Jerray Wu, Xiaohan Wang</b><br>
+  <svg height=800 width=1000 id='bar'>
+  </svg><br>
+  <svg height=300 width=300 style="border:1px solid black" id='pie'>
+  </svg>
+  <script>
+    const svg = d3.select("svg#bar");
+    const height = svg.attr("height");
+    const width = svg.attr("width");
+    const margin = {top: 50, right: 10, bottom: 50, left: 50};
+    const chartWidth = width - margin.left - margin.right;
+    const chartHeight = height - margin.top - margin.bottom;
+    let chartArea = svg.append('g')
+                        .attr('transform',`translate(${margin.left},${margin.top})`);
+    let chartArea2 = svg.append('g')
+                        .attr('transform',`translate(${margin.left},${margin.top})`);
+
+    const svg2 = d3.select("svg#pie");
+    const height2 = svg2.attr("height");
+    const width2 = svg2.attr("width");
+    const radius = Math.min(width2, height2) / 2;
+    let chartArea3 = svg2.append("g").attr("transform", "translate(" + width2 / 2 + "," + height2 / 2 + ")");
+  
+    d3.csv('./Video_Games_Sales_2016.csv', d3.autoType).then( (data) => {
+    console.log(data);
+
+    // Sort data by publisher
+    var gamesByPublisher = new Map();
+    d3.group(data, d => d.Publisher).forEach((key, value) => {
+      gamesByPublisher.set(value, key.length)
+    });
+    // console.log(gamesByPublisher);
+
+    // Make the sorted data to a new map
+    var games = new Map();
+    d3.group(data, d => d.Publisher).forEach((key, value) => {
+      games.set(value, key)
+    });
+    // console.log(games)
+
+    // Get the top 6 publishers
+    var gamesByPublisherSorted = new Map([...gamesByPublisher.entries()].sort((a, b) => b[1] - a[1]));
+    var top6Publisher = [];
+    for (let i=0; i<6; i++) {
+      top6Publisher[i] = Array.from(gamesByPublisherSorted.keys())[i]
+    }
+    console.log(top6Publisher);
+
+    // Get the best game of top 6 publishers
+    var bestGames = [];
+    for (let i=0; i<top6Publisher.length; i++) {
+      var bestGame = games.get(top6Publisher[i]).reduce((prev, current) => (prev.Global_Sales > current.Global_Sales) ? prev : current)
+      bestGames.push(bestGame)
+    }
+    console.log(bestGames);
+
+    // // Chart Title:
+    // svg.append("text")
+    //    .text("Top 6 publishers best selling game and worst selling game")
+    //    .attr("x", 10)
+    //    .attr("y", 20)
+    //    .style("font-size","15px");
+
+    // // X axis (publisher):
+    // const publisherScale = d3.scaleBand().domain(top6Publisher).range([0, chartWidth]).padding(0.35);
+    // let bottomAxis = d3.axisBottom(publisherScale);
+    // let bottomGridlines = d3.axisBottom(publisherScale)
+    //                         .tickSize(-chartHeight-10)
+    //                         .tickFormat("");
+    // svg.append("g")
+    //    .attr("class", "x axis")
+    //    .attr("transform",`translate(${margin.left},${chartHeight+margin.top+10})`)
+    //    .call(bottomAxis);
+    // svg.append("g")
+    //    .attr("class", "gridlines")
+    //    .attr("transform",`translate(${margin.left},${chartHeight+margin.top+10})`)
+    //    .call(bottomGridlines);
+
+    // // Y axis (sales):
+    // var maxSalesBestGames = d3.max(bestGames, function(d) {
+    //     return d.Global_Sales;
+    // })
+    // const salesScale = d3.scaleLinear().domain([0, maxSalesBestGames]).range([chartHeight, 0]);
+    // let leftAxis = d3.axisLeft(salesScale);
+    // let leftGridlines = d3.axisLeft(salesScale)
+    //                       .tickSize(-chartWidth-10)
+    //                       .tickFormat("");
+    // svg.append("g")
+    //    .attr("class", "y axis")
+    //    .attr("transform",`translate(${margin.left-10},${margin.top})`)
+    //    .call(leftAxis);
+    // svg.append("g")
+    //    .attr("class", "gridlines")
+    //    .attr("transform",`translate(${margin.left-10},${margin.top})`)
+    //    .call(leftGridlines);
+
+    // // Best Games Bar Chart:
+    // let colorScale = d3.scaleLinear()
+    //                    .domain([1, maxSalesBestGames])
+    //                    .range(['navy','turquoise'])
+    //                    .interpolate(d3.interpolateHcl);
+    // chartArea.raise();
+    // chartArea2.raise();
+    // chartArea.selectAll("rect.bar")
+    //          .data(bestGames)
+    //          .join("rect")
+    //          .attr("class", "bar")
+    //          .attr("x", d => publisherScale(d.Publisher))
+    //          .attr("y", d => salesScale(d.Global_Sales))
+    //          .attr("width", publisherScale.bandwidth())
+    //          .attr("height", d => chartHeight - salesScale(d.Global_Sales))
+    //          .attr("fill", d => colorScale(d.Global_Sales));
+    
+    // // Best Games Bar Chart Label:
+    // chartArea.selectAll("text.bar")
+    //          .data(bestGames)
+    //          .join("text")
+    //          .attr("class", "bar")
+    //          .attr("x", d => publisherScale(d.Publisher) + publisherScale.bandwidth()/2)
+    //          .attr("y", d => salesScale(d.Global_Sales) - 5)
+    //          .attr("text-anchor", "middle")
+    //          .attr("font-size", "13px")
+    //          .attr("fill", "black")
+    //          .text(d => d.Name);
+
+    // // Best Game Sales Label:
+    // chartArea.selectAll("text.sales")
+    //          .data(bestGames)
+    //          .join("text")
+    //          .attr("class", "sales")
+    //          .attr("x", d => publisherScale(d.Publisher) + publisherScale.bandwidth()/2)
+    //          .attr("y", d => salesScale(d.Global_Sales) + 20)
+    //          .attr("text-anchor", "middle")
+    //          .attr("font-size", "13px")
+    //          .attr("fill", "white")
+    //          .text(d => d.Global_Sales);
+
+    // // Worst Games Bar Chart:
+    // var worstGames = [];
+    // for (let i=0; i<top6Publisher.length; i++) {
+    //   var worstGame = games.get(top6Publisher[i]).reduce((prev, current) => (prev.Global_Sales < current.Global_Sales) ? prev : current)
+    //   worstGames.push(worstGame)
+    // }
+    // console.log(worstGames);
+
+    // const publisherScale2 = d3.scaleBand().domain(top6Publisher).range([0, chartWidth]).padding(0.5);
+    // // Worst Games Bar Chart:
+    // // chartArea2.selectAll("rect.bar")
+    // //          .data(bestGames)
+    // //          .join("rect")
+    // //          .attr("class", "bar")
+    // //          .attr("x", d => publisherScale(d.Publisher))
+    // //          .attr("y", d => salesScale(d.Global_Sales))
+    // //          .attr("width", publisherScale2.bandwidth())
+    // //          .attr("height", d => chartHeight - salesScale(d.Global_Sales))
+    // //          .attr("fill", "orange");
+
+    // // // Worst Games Bar Chart Label:
+    // // chartArea.selectAll("text.bar")
+    // //          .data(worstGames)
+    // //          .join("text")
+    // //          .attr("class", "bar")
+    // //          .attr("x", d => publisherScale(d.Publisher) + publisherScale.bandwidth()/2)
+    // //          .attr("y", d => salesScale(d.Global_Sales) - 5)
+    // //          .attr("text-anchor", "middle")
+    // //          .attr("font-size", "12px")
+    // //          .attr("fill", "black")
+    // //          .text(d => d.Name);
+    
+    // // // Worst Game Sales Label:
+    // // chartArea.selectAll("text.sales")
+    // //          .data(worstGames)
+    // //          .join("text")
+    // //          .attr("class", "sales")
+    // //          .attr("x", d => publisherScale(d.Publisher) + publisherScale.bandwidth()/2)
+    // //          .attr("y", d => salesScale(d.Global_Sales) + 20)
+    // //          .attr("text-anchor", "middle")
+    // //          .attr("font-size", "12px")
+    // //          .attr("fill", "white")
+    // //          .text(d => d.Global_Sales);
+
+    // // var mostPopularGame = new Map();
+    // // mostPopularGame.set("Nintendo", "abcde");
+    // // mostPopularGame.set("Nintendo", "abcde");
+    // // data.forEach(d => {
+    // //     var max = d3.max(data, function(d) {
+    // //     return d.Global_Sales;
+    // // })})
+    
+    // // console.log(data.columns == "Publisher")
+
+    // // find the max and min value of global sales for top 10 publishers and what is the game
+    // // plot these games on the stacked bar chart (x-axis: publisher, y-axis: global sales, 
+    // // different color for different game, and the legend is the game name).
+    // // pie chart for the top 10 publishers best selling game and worst selling game by region
+
+
+
+
+    
+    // // top6Publisher.forEach((d) => {
+    // //   mostPopularGame.set(d, )
+    // // }
+
+    var regionSales = [];
+    for (let i=0; i<bestGames.length; i++) {
+      var regionSale = [{name: bestGames[i].Name, NA_Sales: bestGames[i].NA_Sales, EU_Sales: bestGames[i].EU_Sales, 
+                         JP_Sales: bestGames[i].JP_Sales, Other_Sales: bestGames[i].Other_Sales}];
+      regionSales.push(regionSale);
+    }
+    console.log(regionSales);
+
+    let pieColor = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+
+    
+    var data2 = [];
+    for (let i=0; i<regionSales.length; i++) {
+      data2.push({game: regionSales[i][0].name, sales: [regionSales[i][0].NA_Sales, regionSales[i][0].EU_Sales, regionSales[i][0].JP_Sales, regionSales[i][0].Other_Sales]});
+    }
+
+     console.log(data2);
+  
+    let pie = d3.pie();
+    var arc = d3.arc()
+					.innerRadius(100)
+					.outerRadius(radius);
+
+ 
+    function countPercentage(countArray){
+      var j = eval(countArray.join('+'));
+      var resultArray = [];
+      for (var i = 0 ; i < countArray.length ; i++){
+          var k = Math.floor((countArray[i]/j)*100 * 100) / 100;
+          resultArray.push(k);
+    }
+    return resultArray;
+}
+    let toPercent0 = countPercentage(data2[0].sales)
+    console.log(toPercent0)
+
+    var arcs = chartArea3.selectAll("arc")
+                        .data(pie(toPercent0))
+                        .enter()
+                        .append("g")
+                        .attr("class", "arc")
+
+        arcs.append("path")
+			      .attr("fill", function(d, i) {
+              return pieColor(i);
+            })
+			      .attr("d", arc);
+    
+    // Pie chart label:
+
+
+
+    arcs.append("text")
+        .attr("transform", function(d) {
+          return "translate(" + arc.centroid(d) + ")";
+        })
+        .attr("text-anchor", "middle")
+        .attr("font-size", "12px")
+        .attr("fill", "white")
+        .text(function(d) {
+          return d.data+'%';
+        });
+
+
+    // Pie chart name:
+    chartArea3.append("text")
+              .attr("x", 0)
+              .attr("y", 0)
+              .attr("text-anchor", "middle")
+              .attr("font-size", "20px")
+              .attr("fill", "black")
+              .text(data2[0].game);
+    });
+  </script>
+</body>
+</html>

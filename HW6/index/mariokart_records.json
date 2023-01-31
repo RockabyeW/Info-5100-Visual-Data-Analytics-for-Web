@@ -1,0 +1,808 @@
+{
+  "earliest_date": "1997-03-07",
+  "latest_date": "2021-02-14",
+  "max_value": 299.81,
+  "min_value": 21.35,
+  "timeseries": [
+    {
+      "track": "Kalimari Desert",
+      "values": [
+        {
+          "date": "1999-06-14",
+          "track": "Kalimari Desert",
+          "record_time": 129.46
+        },
+        {
+          "date": "1999-08-07",
+          "track": "Kalimari Desert",
+          "record_time": 128.01
+        },
+        {
+          "date": "2000-11-18",
+          "track": "Kalimari Desert",
+          "record_time": 125.91
+        },
+        {
+          "date": "2004-08-10",
+          "track": "Kalimari Desert",
+          "record_time": 125.7
+        },
+        {
+          "date": "2004-09-15",
+          "track": "Kalimari Desert",
+          "record_time": 125.45
+        },
+        {
+          "date": "2005-05-16",
+          "track": "Kalimari Desert",
+          "record_time": 125.42
+        },
+        {
+          "date": "2005-11-14",
+          "track": "Kalimari Desert",
+          "record_time": 125.16
+        },
+        {
+          "date": "2010-02-20",
+          "track": "Kalimari Desert",
+          "record_time": 125.14
+        },
+        {
+          "date": "2010-02-21",
+          "track": "Kalimari Desert",
+          "record_time": 124.71
+        },
+        {
+          "date": "2010-02-22",
+          "track": "Kalimari Desert",
+          "record_time": 124.57
+        },
+        {
+          "date": "2010-12-17",
+          "track": "Kalimari Desert",
+          "record_time": 124.56
+        },
+        {
+          "date": "2012-07-18",
+          "track": "Kalimari Desert",
+          "record_time": 123.97
+        },
+        {
+          "date": "2012-07-27",
+          "track": "Kalimari Desert",
+          "record_time": 123.73
+        },
+        {
+          "date": "2015-03-08",
+          "track": "Kalimari Desert",
+          "record_time": 123.11
+        },
+        {
+          "date": "2015-04-30",
+          "track": "Kalimari Desert",
+          "record_time": 123.09
+        },
+        {
+          "date": "2016-04-09",
+          "track": "Kalimari Desert",
+          "record_time": 122.82
+        },
+        {
+          "date": "2017-12-13",
+          "track": "Kalimari Desert",
+          "record_time": 122.46
+        },
+        {
+          "date": "2020-01-20",
+          "track": "Kalimari Desert",
+          "record_time": 121.92
+        }
+      ]
+    },
+    {
+      "track": "Rainbow Road",
+      "values": [
+        {
+          "date": "1997-03-07",
+          "track": "Rainbow Road",
+          "record_time": 299.81
+        },
+        {
+          "date": "1997-03-20",
+          "track": "Rainbow Road",
+          "record_time": 287.02
+        },
+        {
+          "date": "1997-04-04",
+          "track": "Rainbow Road",
+          "record_time": 282.56
+        },
+        {
+          "date": "1997-08-30",
+          "track": "Rainbow Road",
+          "record_time": 279.32
+        },
+        {
+          "date": "1998-03-23",
+          "track": "Rainbow Road",
+          "record_time": 277.56
+        },
+        {
+          "date": "1998-09-22",
+          "track": "Rainbow Road",
+          "record_time": 276.32
+        },
+        {
+          "date": "1998-10-18",
+          "track": "Rainbow Road",
+          "record_time": 275.85
+        },
+        {
+          "date": "1998-12-16",
+          "track": "Rainbow Road",
+          "record_time": 275.13
+        },
+        {
+          "date": "1998-12-23",
+          "track": "Rainbow Road",
+          "record_time": 274.75
+        },
+        {
+          "date": "1999-02-20",
+          "track": "Rainbow Road",
+          "record_time": 273.56
+        },
+        {
+          "date": "1999-04-18",
+          "track": "Rainbow Road",
+          "record_time": 273.52
+        },
+        {
+          "date": "1999-07-30",
+          "track": "Rainbow Road",
+          "record_time": 272.42
+        },
+        {
+          "date": "1999-08-30",
+          "track": "Rainbow Road",
+          "record_time": 271.35
+        },
+        {
+          "date": "1999-09-16",
+          "track": "Rainbow Road",
+          "record_time": 261.96
+        },
+        {
+          "date": "2000-11-12",
+          "track": "Rainbow Road",
+          "record_time": 260.47
+        },
+        {
+          "date": "2004-08-10",
+          "track": "Rainbow Road",
+          "record_time": 259.77
+        },
+        {
+          "date": "2004-08-24",
+          "track": "Rainbow Road",
+          "record_time": 259.66
+        },
+        {
+          "date": "2004-09-09",
+          "track": "Rainbow Road",
+          "record_time": 252.86
+        },
+        {
+          "date": "2004-11-29",
+          "track": "Rainbow Road",
+          "record_time": 247.21
+        },
+        {
+          "date": "2005-01-30",
+          "track": "Rainbow Road",
+          "record_time": 243.8
+        },
+        {
+          "date": "2005-02-14",
+          "track": "Rainbow Road",
+          "record_time": 240.74
+        },
+        {
+          "date": "2005-03-01",
+          "track": "Rainbow Road",
+          "record_time": 240.28
+        },
+        {
+          "date": "2005-03-03",
+          "track": "Rainbow Road",
+          "record_time": 240.06
+        },
+        {
+          "date": "2006-02-17",
+          "track": "Rainbow Road",
+          "record_time": 239.42000000000002
+        },
+        {
+          "date": "2006-02-19",
+          "track": "Rainbow Road",
+          "record_time": 239.07
+        },
+        {
+          "date": "2006-12-08",
+          "track": "Rainbow Road",
+          "record_time": 238.84
+        },
+        {
+          "date": "2006-12-10",
+          "track": "Rainbow Road",
+          "record_time": 238.34
+        },
+        {
+          "date": "2006-12-11",
+          "track": "Rainbow Road",
+          "record_time": 238.32999999999998
+        },
+        {
+          "date": "2006-12-13",
+          "track": "Rainbow Road",
+          "record_time": 237.97
+        },
+        {
+          "date": "2012-02-05",
+          "track": "Rainbow Road",
+          "record_time": 237.55
+        },
+        {
+          "date": "2012-02-07",
+          "track": "Rainbow Road",
+          "record_time": 237.18
+        },
+        {
+          "date": "2012-03-08",
+          "track": "Rainbow Road",
+          "record_time": 237.03
+        },
+        {
+          "date": "2012-09-16",
+          "track": "Rainbow Road",
+          "record_time": 236.79
+        },
+        {
+          "date": "2012-09-19",
+          "track": "Rainbow Road",
+          "record_time": 236.61
+        },
+        {
+          "date": "2014-08-07",
+          "track": "Rainbow Road",
+          "record_time": 236.52
+        },
+        {
+          "date": "2015-03-31",
+          "track": "Rainbow Road",
+          "record_time": 236.36
+        },
+        {
+          "date": "2017-11-26",
+          "track": "Rainbow Road",
+          "record_time": 236.07
+        },
+        {
+          "date": "2017-11-30",
+          "track": "Rainbow Road",
+          "record_time": 235.9
+        },
+        {
+          "date": "2017-12-02",
+          "track": "Rainbow Road",
+          "record_time": 235.72
+        },
+        {
+          "date": "2017-12-14",
+          "track": "Rainbow Road",
+          "record_time": 235.38
+        },
+        {
+          "date": "2018-11-05",
+          "track": "Rainbow Road",
+          "record_time": 235.13
+        },
+        {
+          "date": "2019-01-01",
+          "track": "Rainbow Road",
+          "record_time": 234.87
+        },
+        {
+          "date": "2020-10-10",
+          "track": "Rainbow Road",
+          "record_time": 65.77
+        },
+        {
+          "date": "2020-10-11",
+          "track": "Rainbow Road",
+          "record_time": 56.08
+        },
+        {
+          "date": "2020-10-12",
+          "track": "Rainbow Road",
+          "record_time": 54.13
+        },
+        {
+          "date": "2020-10-15",
+          "track": "Rainbow Road",
+          "record_time": 50.48
+        },
+        {
+          "date": "2020-10-16",
+          "track": "Rainbow Road",
+          "record_time": 50.39
+        },
+        {
+          "date": "2020-10-25",
+          "track": "Rainbow Road",
+          "record_time": 50.39
+        },
+        {
+          "date": "2021-02-07",
+          "track": "Rainbow Road",
+          "record_time": 50.38
+        }
+      ]
+    },
+    {
+      "track": "D.K.'s Jungle Parkway",
+      "values": [
+        {
+          "date": "1997-08-30",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 36.54
+        },
+        {
+          "date": "1997-09-06",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 29.9
+        },
+        {
+          "date": "1998-09-14",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 27.38
+        },
+        {
+          "date": "1998-12-24",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 27.26
+        },
+        {
+          "date": "1999-02-03",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 26.48
+        },
+        {
+          "date": "1999-04-28",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 26.26
+        },
+        {
+          "date": "2002-08-02",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 25.58
+        },
+        {
+          "date": "2004-10-02",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 25.56
+        },
+        {
+          "date": "2005-07-29",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 25.16
+        },
+        {
+          "date": "2007-05-13",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 25.16
+        },
+        {
+          "date": "2007-06-06",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 24.81
+        },
+        {
+          "date": "2007-10-19",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 24.4
+        },
+        {
+          "date": "2008-04-10",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 24.28
+        },
+        {
+          "date": "2008-08-07",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 24.03
+        },
+        {
+          "date": "2009-08-04",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 23.85
+        },
+        {
+          "date": "2011-05-09",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 23.54
+        },
+        {
+          "date": "2011-09-07",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 23.29
+        },
+        {
+          "date": "2012-01-17",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 22.92
+        },
+        {
+          "date": "2012-07-02",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 22.62
+        },
+        {
+          "date": "2013-07-16",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 22.53
+        },
+        {
+          "date": "2019-07-22",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 22.09
+        },
+        {
+          "date": "2020-01-23",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 21.77
+        },
+        {
+          "date": "2020-02-04",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 21.63
+        },
+        {
+          "date": "2020-02-20",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 21.45
+        },
+        {
+          "date": "2020-02-25",
+          "track": "D.K.'s Jungle Parkway",
+          "record_time": 21.35
+        }
+      ]
+    },
+    {
+      "track": "Toad's Turnpike",
+      "values": [
+        {
+          "date": "1997-03-12",
+          "track": "Toad's Turnpike",
+          "record_time": 183.96
+        },
+        {
+          "date": "1997-03-17",
+          "track": "Toad's Turnpike",
+          "record_time": 153.51
+        },
+        {
+          "date": "1997-03-31",
+          "track": "Toad's Turnpike",
+          "record_time": 130.34
+        },
+        {
+          "date": "1997-06-24",
+          "track": "Toad's Turnpike",
+          "record_time": 115.65
+        },
+        {
+          "date": "1997-09-06",
+          "track": "Toad's Turnpike",
+          "record_time": 114.99000000000001
+        },
+        {
+          "date": "1998-03-31",
+          "track": "Toad's Turnpike",
+          "record_time": 113.43
+        },
+        {
+          "date": "1998-09-22",
+          "track": "Toad's Turnpike",
+          "record_time": 113.25999999999999
+        },
+        {
+          "date": "1998-09-30",
+          "track": "Toad's Turnpike",
+          "record_time": 112.61
+        },
+        {
+          "date": "1998-10-18",
+          "track": "Toad's Turnpike",
+          "record_time": 112.52000000000001
+        },
+        {
+          "date": "1999-02-03",
+          "track": "Toad's Turnpike",
+          "record_time": 112.32
+        },
+        {
+          "date": "1999-03-26",
+          "track": "Toad's Turnpike",
+          "record_time": 112.03999999999999
+        },
+        {
+          "date": "1999-04-18",
+          "track": "Toad's Turnpike",
+          "record_time": 111.77000000000001
+        },
+        {
+          "date": "1999-05-18",
+          "track": "Toad's Turnpike",
+          "record_time": 111.43
+        },
+        {
+          "date": "1999-10-31",
+          "track": "Toad's Turnpike",
+          "record_time": 111.15
+        },
+        {
+          "date": "2000-04-27",
+          "track": "Toad's Turnpike",
+          "record_time": 111.1
+        },
+        {
+          "date": "2000-10-20",
+          "track": "Toad's Turnpike",
+          "record_time": 111.08
+        },
+        {
+          "date": "2001-03-16",
+          "track": "Toad's Turnpike",
+          "record_time": 111
+        },
+        {
+          "date": "2001-03-22",
+          "track": "Toad's Turnpike",
+          "record_time": 110.95
+        },
+        {
+          "date": "2001-07-05",
+          "track": "Toad's Turnpike",
+          "record_time": 110.69
+        },
+        {
+          "date": "2003-09-26",
+          "track": "Toad's Turnpike",
+          "record_time": 110.52000000000001
+        },
+        {
+          "date": "2003-11-25",
+          "track": "Toad's Turnpike",
+          "record_time": 110.46000000000001
+        },
+        {
+          "date": "2004-03-03",
+          "track": "Toad's Turnpike",
+          "record_time": 110.14
+        },
+        {
+          "date": "2004-09-09",
+          "track": "Toad's Turnpike",
+          "record_time": 110.09
+        },
+        {
+          "date": "2005-04-28",
+          "track": "Toad's Turnpike",
+          "record_time": 110
+        },
+        {
+          "date": "2005-05-03",
+          "track": "Toad's Turnpike",
+          "record_time": 109.94
+        },
+        {
+          "date": "2005-11-09",
+          "track": "Toad's Turnpike",
+          "record_time": 109.71000000000001
+        },
+        {
+          "date": "2006-03-17",
+          "track": "Toad's Turnpike",
+          "record_time": 109.68
+        },
+        {
+          "date": "2009-10-16",
+          "track": "Toad's Turnpike",
+          "record_time": 109.37
+        },
+        {
+          "date": "2013-05-15",
+          "track": "Toad's Turnpike",
+          "record_time": 109.34
+        },
+        {
+          "date": "2013-07-30",
+          "track": "Toad's Turnpike",
+          "record_time": 109.19
+        },
+        {
+          "date": "2014-09-14",
+          "track": "Toad's Turnpike",
+          "record_time": 109.14
+        },
+        {
+          "date": "2016-03-09",
+          "track": "Toad's Turnpike",
+          "record_time": 109.07
+        },
+        {
+          "date": "2020-06-18",
+          "track": "Toad's Turnpike",
+          "record_time": 109.05
+        },
+        {
+          "date": "2020-08-05",
+          "track": "Toad's Turnpike",
+          "record_time": 47.59
+        },
+        {
+          "date": "2020-08-06",
+          "track": "Toad's Turnpike",
+          "record_time": 47.58
+        },
+        {
+          "date": "2020-08-07",
+          "track": "Toad's Turnpike",
+          "record_time": 45.03
+        },
+        {
+          "date": "2020-08-08",
+          "track": "Toad's Turnpike",
+          "record_time": 41.13
+        },
+        {
+          "date": "2020-08-09",
+          "track": "Toad's Turnpike",
+          "record_time": 32.92
+        },
+        {
+          "date": "2020-08-11",
+          "track": "Toad's Turnpike",
+          "record_time": 32.2
+        },
+        {
+          "date": "2020-08-16",
+          "track": "Toad's Turnpike",
+          "record_time": 31.32
+        },
+        {
+          "date": "2020-08-20",
+          "track": "Toad's Turnpike",
+          "record_time": 30.46
+        },
+        {
+          "date": "2021-02-14",
+          "track": "Toad's Turnpike",
+          "record_time": 30.31
+        }
+      ]
+    },
+    {
+      "track": "Luigi Raceway",
+      "values": [
+        {
+          "date": "1997-05-20",
+          "track": "Luigi Raceway",
+          "record_time": 117.05
+        },
+        {
+          "date": "1997-06-24",
+          "track": "Luigi Raceway",
+          "record_time": 102.78999999999999
+        },
+        {
+          "date": "1997-08-30",
+          "track": "Luigi Raceway",
+          "record_time": 101.1
+        },
+        {
+          "date": "1998-01-02",
+          "track": "Luigi Raceway",
+          "record_time": 99.75
+        },
+        {
+          "date": "1998-09-02",
+          "track": "Luigi Raceway",
+          "record_time": 98.97
+        },
+        {
+          "date": "1998-09-18",
+          "track": "Luigi Raceway",
+          "record_time": 98.15
+        },
+        {
+          "date": "1998-10-08",
+          "track": "Luigi Raceway",
+          "record_time": 97.82
+        },
+        {
+          "date": "1998-12-24",
+          "track": "Luigi Raceway",
+          "record_time": 97.28999999999999
+        },
+        {
+          "date": "1999-03-26",
+          "track": "Luigi Raceway",
+          "record_time": 96.25
+        },
+        {
+          "date": "1999-04-15",
+          "track": "Luigi Raceway",
+          "record_time": 95.93
+        },
+        {
+          "date": "1999-10-08",
+          "track": "Luigi Raceway",
+          "record_time": 95.39
+        },
+        {
+          "date": "1999-11-02",
+          "track": "Luigi Raceway",
+          "record_time": 94.74000000000001
+        },
+        {
+          "date": "2000-11-19",
+          "track": "Luigi Raceway",
+          "record_time": 94.39
+        },
+        {
+          "date": "2005-09-19",
+          "track": "Luigi Raceway",
+          "record_time": 93.22
+        },
+        {
+          "date": "2012-08-30",
+          "track": "Luigi Raceway",
+          "record_time": 92.78999999999999
+        },
+        {
+          "date": "2012-08-31",
+          "track": "Luigi Raceway",
+          "record_time": 91.62
+        },
+        {
+          "date": "2016-03-22",
+          "track": "Luigi Raceway",
+          "record_time": 89.94
+        },
+        {
+          "date": "2016-03-24",
+          "track": "Luigi Raceway",
+          "record_time": 87.45
+        },
+        {
+          "date": "2017-04-25",
+          "track": "Luigi Raceway",
+          "record_time": 86.7
+        },
+        {
+          "date": "2021-02-09",
+          "track": "Luigi Raceway",
+          "record_time": 27.47
+        },
+        {
+          "date": "2021-02-11",
+          "track": "Luigi Raceway",
+          "record_time": 25.3
+        }
+      ]
+    }
+  ]
+}

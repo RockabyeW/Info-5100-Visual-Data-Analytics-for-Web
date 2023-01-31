@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+  
+        .gridlines line {
+          stroke: #bbb;
+        }
+        
+        .gridlines .domain {
+          stroke: none;
+        }
+      
+        </style>
+</head>
+<body>
+    <p id="p1">
+        Answers: 
+        A) 
+        Marks: Polygons with different shapes and different colors (white, pink, blue, red, yellow, orange, purple and so on)
+        Channels: Varing the color of polygons for fraction of precipitation lost to evapotranspiration. 
+                  Varing the shape of polygons according to the shape of states of the US
+        B) 
+        Marks: Circles with different colors (green red and blue).
+        Channels: Varing the different position according to PC2 and PC1. 
+                  Varing the different color for different kinds of ingredients (Cookies, Pastries, Pizzas)
+        C) 
+        Marks: light blue rectangles.
+        Channels: Varying the vertical aligned length and horizontal aligned position of rectangles
+    </p>
+    <p id="p2">
+        <svg id="s1" height=500 width=500 style="border:1px solid black; margin-bottom:50px;"></svg>
+        <script>
+            console.log(d3.json('chip_dataset.json'));
+            const svg = d3.select('svg#s1');
+            const width = svg.attr('width');
+            const height = svg.attr('height');
+            const margins = {top: 10, right: 10, bottom: 50, left: 50};
+            const chartWidth = width - margins.left - margins.right;
+            const chartHeight = height - margins.top - margins.bottom;
+            let chartArea = svg.append('g')
+                                .attr('transform',`translate(${margins.left},${margins.top})`);
+            d3.json('chip_dataset.json').then((data)=>{
+                console.log(data);
+                const rdExtent = d3.extent(data, d => d['Release Day'] );
+                const tExtent = d3.extent(data, d => d['Transistors(million)'] );
+                const xScale = d3.scaleLinear().domain(rdExtent).range([0, chartWidth]);
+                const yScale = d3.scaleLog().domain(tExtent).range([chartHeight, 0]);
+                let leftAxis = d3.axisLeft(yScale);
+                svg.append('g')
+                    .attr('class', 'y axis')
+                    .attr('transform',`translate(${margins.left-10},${margins.top+10})`) 
+                    .call(leftAxis);
+                let leftGridlines = d3.axisLeft(yScale)
+                          .tickSize(-chartWidth-10)
+                          .tickFormat('');
+                svg.append('g').attr('class', 'y gridlines') 
+                                .attr('transform',`translate(${margins.left-10},${margins.top+10})`)
+                                .call(leftGridlines);
+                let bottomAxis = d3.axisBottom(xScale).ticks(6) 
+                svg.append('g')
+                    .attr('class', 'y axis')
+                    .attr('transform',`translate(${margins.left-10},${chartHeight+margins.top+10})`)
+                    .call(bottomAxis);
+
+                let bottomGridlines = d3.axisBottom(xScale)
+                            .tickSize(-chartHeight-10)
+                            .tickFormat('')
+                            .ticks(6); 
+                svg.append('g').attr('class', 'x gridlines') 
+                                .attr('transform',`translate(${margins.left-10},${chartHeight+margins.top+10})`)
+                                .call(bottomGridlines);
+                
+                                data.forEach( (d, i) => {
+
+                chartArea.append('circle')
+                    .attr('cx', xScale(d['Release Day']))
+                    .attr('cy', yScale(d['Transistors(million)']))
+                    .attr('r', 3)
+                    .attr('opacity', 0.3)
+                    .attr('index', i) 
+                    .style('fill', 'darkblue');
+
+                });
+            
+            
+            
+            
+            
+            
+            })
+        </script>
+
+    </p>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="submap" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <title>Project 2 Info 3300</title>
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden
+        }
+
+        h1 {
+            font-weight: 700;
+            line-height: 38px;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            color: #555;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        button {
+            display: inline-block;
+            height: 38px;
+            padding: 0 30px;
+            color: #555;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 38px;
+            letter-spacing: .1rem;
+            text-transform: lowercase;
+            text-decoration: none;
+            white-space: nowrap;
+            background-color: transparent;
+            border-radius: 4px;
+            border: 1px solid #bbb;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        button:focus {
+            background-image: linear-gradient(to right,
+                    #b3e2cd, #fdcdac, #cbd5e8, #f4cae4, #e6f5c9, #fff2ae, #f1e2cc, #cccccc);
+            animation: slidebg 2s linear infinite;
+            color: #555;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #cont1 {
+            margin-top: 10px;
+
+        }
+
+        .state {
+            fill: white;
+        }
+
+        .outline {
+            fill: none;
+            stroke: black;
+            stroke-width: 1px;
+        }
+
+        .tooltip {
+            pointer-events: none;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+    <div class="content">
+        <h1> Subway locations & income data across the US </h1>
+
+        <div id="container">
+
+            <div id="cont1" class="content">
+                <button id="toUS">back to (continental) US</button>
+                <button id="toHawaii">view Hawaii</button>
+                <button id="toAlaska">view Alaska</button>
+            </div>
+            <p>
+                As someone who has been around long enough to remember the iconic "five dollar foot-long" commercials, I
+                was shocked during my most recent visit to Subway when I had to pay $13 for my foot long. Has inflation
+                truly gotten out of control, or has Subway become a higher end fast-food chain? We used both household
+                income
+                and Subway restaurant location datasets for this project. Feel free to pan/zoom, switch to different
+                views,
+                or hover for more information. Enjoy!
+            </p>
+
+
+            <div id="cont2" class="content" style="position: relative; left: -100; ">
+
+                <svg id="subway" height="800" width="1000" style="background: #fff; margin-top:50px">
+                </svg>
+
+
+            </div>
+
+        </div>
+
+
+
+        <script>
+
+            // Regular map + Zoom
+
+
+            const requestData = async function () {
+
+                const countynames = await d3.json('counties-10m.json');
+
+                const countymap = {}
+
+                countynames.objects.counties.geometries.forEach((d, i) => {
+
+                    countymap[d.id] = d.properties.name;
+                })
+
+                const us = await d3.json("us.json");
+                const usincome = await d3.csv("household_income_kaggle.csv");
+
+                // let filteredStates = [ '02','15', '60', '66', '69', '72', '74', '78'];
+                let filteredStates = ['02', '15']; // just Alaska + Hawaii
+                us.objects.states.geometries = us.objects.states.geometries.filter(d => {
+                    return filteredStates.indexOf(d.id.toString().padStart(2, '0')) === -1;
+                });
+
+
+                var states = topojson.feature(us, us.objects.states);
+                var statesMesh = topojson.mesh(us, us.objects.states);
+                var counties = topojson.feature(us, us.objects.counties);
+                var countiesMesh = topojson.mesh(us, us.objects.counties);
+
+                let subsvg = d3.select("#subway");
+                let subwidth = subsvg.attr("width");
+                let subheight = subsvg.attr("height");
+                let submapWidth = subwidth;
+                let submapHeight = subheight;
+
+                let projection = d3.geoMercator().fitSize([subwidth, subheight], states);
+                // var projection = d3.geoAlbersUsa().scale(1300).translate([487.5, 305]);
+                var path = d3.geoPath().projection(projection);
+                var submap = subsvg.append("g");
+                var subway = await d3.csv("subway_locations_in_us.csv", d3.autoType);
+                let colors = ["#cadef0", "#abcfe6", "#82badb", "#59a1cf", "#3787c0", "#1c6aaf", "#0b4d94", "#08306b"];
+                var domain = d3.map(usincome, d => Number(d.Median));
+                var quantileScale = d3.scaleOrdinal().domain(domain).range(colors);
+
+                submap.append("path")
+                    .attr("class", "graticule")
+                    .attr("d", path(d3.geoGraticule10()))
+                    .attr("fill", "none");
+
+                submap.selectAll(".state").data(states.features)
+                    .enter()
+                    .append("path")
+                    .attr("class", "state")
+                    .attr("d", path)
+                    .attr("stroke-width", 3)
+                    .attr("stroke", "none")
+                    .attr("fill", "none")
+                    .on("mouseover", mouseEntersState)
+                    .on("mouseout", mouseLeaveState);
+
+                submap.selectAll(".county").data(counties.features)
+                    .enter()
+                    .append("path")
+                    .attr("class", "county")
+                    .attr("d", path)
+                    .attr("stroke-width", 1.2)
+                    .attr("stroke", "lightblue")
+                    .style("fill", (d) => {
+                        return quantileScale(d);
+                        console.log(quantileScale(d));
+                    });
+
+                submap.append("path")
+                    .datum(countiesMesh)
+                    .attr("class", "county-outline")
+                    .attr("d", path)
+                    .attr("fill", "none");
+
+                submap.append("path")
+                    .datum(statesMesh)
+                    .attr("class", "state-outline")
+
+                    .attr("d", path)
+                    .attr("fill", "none");
+
+                subway.forEach((d, i) => {
+                    d.position = projection([d.longitude, d.latitude]);
+                });
+
+                submap.selectAll("circle").data(subway)
+                    .join("circle")
+                    .attr("r", 2)
+                    .attr("fill", "orange")
+                    .attr("opacity", 0.4)
+                    .attr("cx", d => d.position[0])
+                    .attr("cy", d => d.position[1]);
+
+
+                let tooltipWidth = 140;
+                let tooltipHeight = 50;
+
+                let momesh = submap.append("path")
+                    .attr("class", "mouseover outline")
+                    .style("stroke", "black")
+                    .style("stroke-width", 3)
+                    .attr("d", "");
+
+                let tooltip = submap.append("g")
+                    .attr("class", "tooltip")
+                    .attr("visibility", "hidden");
+
+                tooltip.append("rect")
+                    .attr("fill", "black")
+                    .attr("opacity", 0.4)
+                    .attr("x", -tooltipWidth / 2.0)
+                    .attr("y", 0)
+                    .attr("width", tooltipWidth)
+                    .attr("height", tooltipHeight);
+
+                let txt = tooltip.append("text")
+                    .attr("fill", "white")
+                    .attr("text-anchor", "middle")
+                    .attr("alignment-baseline", "hanging")
+                    .attr("x", 0)
+                    .attr("y", 12);
+
+                let txt2 = tooltip.append("text")
+                    .attr("fill", "white")
+                    .attr("text-anchor", "middle")
+                    .attr("alignment-baseline", "hanging")
+                    .attr("x", 0)
+                    .attr("y", 28);
+
+
+                arr = [];
+                subway.forEach((d, i) => {
+                    arr.push(d.state);
+                });
+
+                var occurrences = {};
+                for (var i = 0, j = arr.length; i < j; i++) {
+                    occurrences[arr[i]] = (occurrences[arr[i]] || 0) + 1;
+                }
+
+                function mouseEntersState() {
+        
+                    tooltip.style("visibility", "visible");
+
+        
+                    let state = d3.select(this);
+                    console.log(state);
+
+                    arr = [];
+                    subway.forEach((d, i) => {
+                        arr.push(d.state);
+                    });
+
+              
+                    var occurrences = {};
+                    for (var i = 0, j = arr.length; i < j; i++) {
+                        occurrences[arr[i]] = (occurrences[arr[i]] || 0) + 1;
+                    }
+
+           
+                    state.attr("stroke", "black")
+                        .attr("stroke-width", 3);
+
+                    let stateID = state.datum().id;
+
+                    let stateNames = ['PH', 'Alabama', 'Alaska', 'PH', 'Arizona', 'Arkansas', 'California', 'PH', 'Colorado', 'Connecticut',
+                        'Delaware', 'PH', 'Florida', 'Georgia', 'Hawaii', 'PH', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
+                        'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+                        'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina',
+                        'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'PH', 'Rhode Island', 'South Carolina', 'South Dakota',
+                        'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'PH', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
+                    let stateAbbrev = ['PH', 'AL', 'AK', 'PH', 'AZ', 'AR', 'CA', 'PH', 'CO', 'CT',
+                        'DE', 'PH', 'FL', 'GA', 'HI', 'PH', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY',
+                        'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO',
+                        'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC',
+                        'ND', 'OH', 'OK', 'OR', 'PA', 'PH', 'RI', 'SC', 'SD',
+                        'TN', 'TX', 'UT', 'VT', 'VA', 'PH', 'WA', 'WV', 'WI', 'WY'];
+
+                    txt.text(stateNames[stateID]);
+                    console.log(stateNames[stateID]);
+                    let curstate = stateAbbrev[stateID];
+
+                    txt2.text("Total store count: " + occurrences[curstate]);
+
+
+
+                    let bounds = path.bounds(state.datum());   
+              
+
+                 
+                    let xPos = (bounds[0][0] + bounds[1][0]) / 2.0;
+                    let yPos = bounds[1][1] - 15;
+
+               
+                    tooltip.attr("transform", `translate(${xPos},${yPos})`);
+
+                    var mo = topojson.mesh(us, us.objects.states, function (a, b) { return a.id === stateID || b.id === stateID; });
+               
+                    momesh.datum(mo).attr("d", path)
+                }
+
+
+                function mouseLeaveState() {
+                    tooltip.style("visibility", "hidden");
+
+                    let state = d3.select(this);
+     
+                    state.attr("stroke", "none")
+                        .attr("stroke-width", 0);
+
+
+                }
+
+                let stateIdCounts = {} // stateID => count #
+                let stateIdNames = {} // stateID => name of state
+                subway.forEach(row => {
+                    stateIdCounts[row.state] = Number(row.total);
+                    stateIdNames[row.state] = row.state;
+                });
+
+                legendscale = d3.scaleQuantize().domain(domain).range(colors);
+                subsvg.append("g")
+                    .attr("class", "legendquant")
+                    .attr("transform", "translate(835,300)");
+                var legend = d3.legendColor()
+                    .labelFormat(d3.format(",.0f"))
+                    .cells(5)
+                    .title('Household Income($)')
+                    .scale(legendscale);
+                subsvg.select(".legendquant")
+                    .call(legend)
+
+                function plotZoomed({ transform }) {
+                    // console.log(transform);
+                    
+
+                    submap.attr("transform", transform.toString());
+
+                    submap.select(".zips-mesh")
+                        .style("stroke-width", 1 / transform.k);
+
+
+                }
+
+    
+
+                var plotZoom = d3.zoom()
+                    .scaleExtent([1, 10])
+                    .on("zoom", plotZoomed);
+
+                subsvg.call(plotZoom);
+
+
+
+                d3.select("#toAlaska")
+                    .on("click", function () {
+                        submap.attr("transform", "translate(1011, 686)");
+                    })
+
+                d3.select("#toUS")
+                    .on("click", function () {
+                        submap.attr("transform", "translate(-1, 12)");
+                    })
+
+                d3.select("#toHawaii")
+                    .on("click", function () {
+                        submap.attr("transform", "translate(1138, -544)");
+
+                    })
+
+           
+            }
+            requestData();
+
+
+        </script>
+    </div>
+</body>
+
+</html>
+<style>
+    circle {
+        pointer-events: none;
+    }
+
+    .county {
+        pointer-events: none;
+    }
+</style>

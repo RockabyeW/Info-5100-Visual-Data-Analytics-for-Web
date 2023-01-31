@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <svg id="forcehw" height="200" width="800" style="margin:20px"></svg>
+        <script>
+            const requestData = async () => {
+                let data1 = await d3.csv("senate.109.rollcall.nodes.csv");
+                let data2 = await d3.csv("senate.109.rollcall.edges.csv");
+                console.log(data1);
+                console.log(data2);
+                let Layer = d3.select("#forcehw").append("g");
+                let Width = d3.select("#forcehw").attr("width");
+                let Height = d3.select("#forcehw").attr("height");
+                const colorScale = d3.scaleOrdinal().domain(["Dem","Rep", "Ind"]).range(["blue","red", "yellow"]);
+                var sim = d3.forceSimulation()
+                  .nodes(data1)
+                  .force("links", d3.forceLink() 
+                                          .links(data2)         
+                                          .id( d => d["icpsr"] ) )
+                                                 
+                  .force("repulse", d3.forceManyBody().strength(-50) ) 
+                  .force("ypos", d3.forceY()
+                                                   .strength( 0.05 )
+                                                   .y( Height/2 ) )
+                  .force("xpos", d3.forceX()
+                                                   .strength( 0.05 )
+                                                   .x( d=>{
+                                                    if(d.party=="Dem") return Width*0.25
+                                                    else if(d.party=="Rep") return Width*0.72
+                                                    else return 0
+                                                   }))
+                  .on("tick", render);
+
+                  function render() {
+
+
+                    let lines = Layer.selectAll("line.link").data(data2)
+                        .join(
+                        enter => enter.append("line")
+                                        .attr("class","link")
+                                        .attr("stroke","black") 
+                        )
+                        .attr("x1", d => d.source.x).attr("x2", d => d.target.x)   
+                        .attr("y1", d => d.source.y).attr("y2", d => d.target.y);
+
+
+                    let circles = Layer.selectAll("circle.node").data(data1)
+                        .join(
+                            enter => enter.append("circle")
+                                            .attr("class","node")
+                                            .attr("stroke", "darkgrey")
+                                            .attr("stroke-width", 1)
+                                            .attr("r", 8)
+                                            .attr("cx", 0)
+                                            .attr("cy", 0)
+                                            .attr("fill", d => colorScale(d.party))
+
+                            )
+                        .attr("transform", d => `translate(${d.x},${d.y})`);
+
+
+
+
+                }
+            }
+            requestData();
+        </script>
+    </p>
+</body>
+</html>

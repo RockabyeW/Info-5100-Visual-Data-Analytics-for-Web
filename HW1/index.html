@@ -1,0 +1,100 @@
+<html><body>
+    <p id="p1">
+        Name: Xiaohan Wang, Netid:xw642
+        <br>
+        Problem 1. For each of the following items in the list, please:
+        <br>A: Identify whether it is a canonical Javascript type
+        <br>B: If the type is a canonical Javascript type, please provide an example in your script
+        <br>section using console.log(typeof( ... )).
+        <br>C: If applicable, identify any unusual or unexpected typeof() behavior for the type.
+        <br>(do this whether or not it is a canonical JS type if it is applicable)
+        <br>a) dingus; b) array; c) boolean; d) int; e) number; f) class;
+        <br>g) regex; h) string; i) Unicode; j) object; k) null; l) function;
+        <br>m) NaN (not a number); n) char; o) pointer; p) undefined;
+    <script>
+            //A.answer
+            document.write("<br>A.Anser:<br>Only c),e),h),k),p) are canonical Javascript type")
+           //B.answer
+            document.write('<br>B.anser is in console')
+            console.log(typeof(true))
+            console.log(typeof(1))
+            console.log(typeof("abc"))
+            console.log(typeof(null))//it should be null but it is output as object
+            console.log(typeof(undefined))
+           //C.answer
+            document.write('<br>C.anser:')
+            let a = [1,2,3]
+            console.log(typeof(a)) //it should be array but it is output as object
+            console.log(typeof(1)) //it should be int but it is output as number
+            class b {}
+            console.log(typeof(b))//it should be class but it is output as function
+            console.log(typeof(NaN))//it should be NaN but it is output as number
+            console.log(typeof('c'))///it should be char but it is output as string
+            console.log(typeof(null)) //it should be null but it is output as object
+                                    //it should be Unicode but it is output as string
+
+
+    </script>
+    </p>
+    <p id="p2">
+        <br>Problem 2. First, in 1-2 sentences, please define type coercion. Then, in your <p> tag please provide
+            two examples where type coercion produces an answer that is unusual or unexpected (i.e.
+            different from Python output or a case where Python would throw an exception). For each
+            sample, briefly explain why it is unexpected. Then, in the script section put both of your
+            code examples into of a console.log() statement so we can see the result (e.g.
+            console.log("apple" + "orange") )
+            
+        <br>Answer:
+        <br>Type coercion is the process of converting value from one type to another (such as string to number, object to boolean, and so on).
+        <br>eg1:True + 1 ; True is a boolean, and 1 is a number. It could have cause error in Python but it can be calculated as 2 in JS;
+            eg2:"aofihwoeifh"+1; "aofihwoeifh" is a String, and 1 is a number. It could have cause error in Python but it can be output as aofihwoeifh1 in JS;
+        <script>
+            console.log(true+1)
+            console.log("aofihwoeifh"+1)
+        </script>
+    </p>
+    <p id = "p3">
+        <br>
+        Problem 3. In your script tag, create a recursive function, fact( n ), which takes an integer, n,
+            as an argument and returns the factorial of n. Do not use loops or the built-in factorial
+            functions to accomplish this. Remember that recursion involves two major components:
+            base case(s) and recursive calls of the same function.
+            Make sure that your fact function handles negative integers by returning undefined,
+            properly returns 1 for fact( 0 ), and otherwise uses recursion to compute correct
+            factorials for larger integers.
+            Include the following code block after your function to prove it works as expected:
+            console.log( fact(-2) );
+            console.log( fact(0) );
+            console.log( fact(1) );
+            console.log( fact(5) );
+            console.log( fact(12) );
+            (As the function is only intended to handle integers, do not worry about implementing the
+            gamma function for decimal numbers)
+        <br>
+        <script>
+            function  fact(n){
+                if(n>0){
+                    if(n==1) return 1
+                    return fact(n-1)*n
+                }
+                else return 1
+            }
+            console.log( fact(-2) );
+            console.log( fact(0) );
+            console.log( fact(1) );
+            console.log( fact(5) );
+            console.log( fact(12) );
+        </script>
+    </p>
+
+    <p id="p4">
+        4. Describe, in your own words, the course policy on late and unreadable work outlined in
+        the syllabus, which is linked from the course website.
+        <br><br>Answer：
+        <br>Every late work gets 0 points. An unzipped or unauthorized file or commit without a key file will not receive 0 by example. 
+        <br>This includes the fact that we have submitted the correct document, but if we actually forgot the document or submitted our previous homework. 
+        <br>In order to avoid zero points, we must redownload and verify the commit in CMS. We will receive a total of 5 days of sliding days as an extension of the deadline. 
+        <br>The minimum two homework scores will be removed.
+    </p>
+
+    </body></html>

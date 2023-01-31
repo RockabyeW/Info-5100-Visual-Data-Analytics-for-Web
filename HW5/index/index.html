@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <ul id="p1">
+        <li id="A">
+            Answer of A:
+            This is a divergent scale. 
+            I don't think it is a very effective divergent scale. Admittedly, this scale has a middle color that is different from both sides. But personally, I think that the color on both sides should be same or at least sort of same. But red and yellow is not even same in lightness. I think the middle color should be lighter and both side color should be darker and it would be better this way.
+        </li>
+        <li id="B">
+            Answer of B:
+            I don't think this is a effective color scale for this task. Because it is a sequential color scale, but I think divergent color scale is more suitable for this task. Because like(1) and dislike(-1) are all strong emotion, whereas neutral(0) is the very middle emotion. So I think the color in both sides should be dark and the middle color should be light to demonstrate better for this task, which should be divergent color. 
+        </li>  
+        <li id="C">
+            Answer of C:
+            Anomalous Trichromat: reduced red sensitivity, reduced green sensitivity, or reduced blue sensitivity
+            Dichromat: unable to receive red, green or blue.
+            Monochromat: unable to combine colors or very low color recognition
+            photo is in Zip called C answers.jpg
+        </li>  
+        <li id="D">
+            Answer of D:
+            I would not entirely recommend this rainbow scale. Because according to "average life expectancy", it is better to assign longevity counties as green, the middle longevity counties as light green or yellow and the people in counties with short life span as orange or red. This is much better. So I would only recommend that it should use the middle to right side of this scale instead of the whole rainbow scale. 
+        </li>
+    </ul>
+    <p id="p2">
+        <svg id="s1" height=500 width=500 style="border:1px solid black; margin-bottom:50px; background-color:black"></svg>
+        <script>
+            console.log(d3.csv('NCAA_shots.csv'))
+            const svg = d3.select('svg#s1');
+            d3.csv('NCAA_shots.csv').then((data)=>{
+                data.forEach(d => {
+                    d['x']*=5;
+                    d['y']*=5;
+                    d['width']*=5;
+                    d['height']*=5;
+                });
+                const aextent = d3.extent(data, d => d['log_attempt'] )
+                let colorScale = d3.scaleLinear().domain(aextent)
+                                   .range([0,1])
+                let rect = svg.selectAll("rect").data(data)
+                             .join("rect")
+                             .attr("x", d => d['x'])
+                             .attr("y", d => d['y'])
+                             .attr("width", d => d['width'])
+                             .attr("height", d => d['height'])
+                             .attr("fill", d => d3.interpolateViridis(colorScale(d.log_attempt)))
+
+            })
+        </script>
+        Advantage of logarithmic color scale: it gives the most average and even color across the image.
+        disadvantage of logarithmic color scale: it doesn't allows you to manipulate the color values as they would exist in the real world.
+
+    </p>
+    <p id="p3">
+        <svg id="s2" height=420 width=420 style="border:1px solid black; margin-bottom:50px"></svg>
+        <script>
+            let array = new Array()
+            let ind = 0;
+            for(let j=0; j<=20; j++){
+                for(let i=0; i<=20; i++){
+                    array[ind]={c:i*5,h:j*18}
+                    ind++
+                }
+            }
+            console.log(array)
+            const svg2 = d3.select("svg#s2")
+            let a = new Array()
+            let index=0
+            for(let i=0; i<=20; i++){
+                for(let j=0; j<=20; j++){
+                    a[index]={x:i*20+10,y:j*20+10}
+                    index++
+                }
+            }
+            function showCircles(lightness){
+                svg2.selectAll("circle").data(a)
+                                        .join("circle")               
+                                        .attr("r", 10)
+                                        .attr("cx", d => d['x'] )
+                                        .attr("cy", d => d['y'] );
+
+                svg2.selectAll("circle").data(array)
+                                        .join("circle")
+                                        .attr("fill", array=>d3.hcl(array['h'],array['c'],lightness))
+
+            }
+            showCircles(80)
+            
+
+        </script>
+        <input id="range" type="range" min="0" max="200" value="80" step="1" oninput="change()" onchange="change()">
+        <span id="value">0</span>
+        <script type='text/javascript'>
+        function change() {
+        var value = document.getElementById('range').value ;
+        document.getElementById('value').innerHTML = showCircles(value);
+        }
+        </script>
+
+    </p>
+</body>
+</html>
